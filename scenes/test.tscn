@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfvkc40avqt21"]
+
+[ext_resource type="Script" uid="uid://jjcaeg86y15b" path="res://scripts/mono/Loader.cs" id="1_errlg"]
+
+[node name="Test" type="Node"]
+
+[node name="World3D" type="Node3D" parent="."]
+
+[node name="Loader" type="Node3D" parent="World3D"]
+script = ExtResource("1_errlg")
+
+[node name="TopUILayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="TopUILayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

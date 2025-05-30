@@ -1,0 +1,42 @@
+root = true
+
+[*]
+charset = utf-8
+
+# C# files
+[*.cs]
+
+#### Core EditorConfig Options ####
+# Indentation and spacing
+indent_size = 4
+indent_style = space
+tab_width = 4
+
+# New line preferences
+insert_final_newline = false
+
+#### .NET Coding Conventions ####
+# Parentheses preferences
+dotnet_style_parentheses_in_arithmetic_binary_operators = always_for_clarity
+dotnet_style_parentheses_in_other_binary_operators = always_for_clarity
+dotnet_style_parentheses_in_other_operators = never_if_unnecessary
+dotnet_style_parentheses_in_relational_binary_operators = always_for_clarity
+
+# New line preferences
+dotnet_style_allow_multiple_blank_lines_experimental = true
+
+#### C# Coding Conventions ####
+# Code-block preferences
+csharp_prefer_braces = true
+csharp_prefer_simple_using_statement = true
+
+#### C# Formatting Rules ####
+# New line preferences
+csharp_new_line_before_catch = false
+csharp_new_line_before_else = false
+csharp_new_line_before_finally = false
+csharp_new_line_before_open_brace = none
+
+# Wrapping preferences
+csharp_preserve_single_line_blocks = false
+csharp_preserve_single_line_statements = true

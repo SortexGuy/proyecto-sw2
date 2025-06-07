@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkskpavqya0o2"]
+
+[ext_resource type="PackedScene" uid="uid://1o34vldnsbvu" path="res://scenes/world_layer.tscn" id="1_pw63i"]
+[ext_resource type="PackedScene" uid="uid://cklq6bjwo3103" path="res://scenes/world_overlay_layer.tscn" id="1_w2twt"]
+
+[node name="MainScene" type="Node"]
+
+[node name="World" type="Node" parent="."]
+
+[node name="WorldLayer" parent="World" instance=ExtResource("1_pw63i")]
+
+[node name="Interfaces" type="Node" parent="."]
+
+[node name="WorldOverlayLayer" parent="Interfaces" instance=ExtResource("1_w2twt")]

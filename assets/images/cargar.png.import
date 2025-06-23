@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmk6fr13fy727"
-path="res://.godot/imported/LGOO.png-50843ef83f10d67e8d5a72fec3357f92.ctex"
+uid="uid://bkcl04h1sts0e"
+path="res://.godot/imported/cargar.png-bf92d193e9b48da7d10a5ae22d92a72f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/LGOO.png"
-dest_files=["res://.godot/imported/LGOO.png-50843ef83f10d67e8d5a72fec3357f92.ctex"]
+source_file="res://assets/images/cargar.png"
+dest_files=["res://.godot/imported/cargar.png-bf92d193e9b48da7d10a5ae22d92a72f.ctex"]
 
 [params]
 

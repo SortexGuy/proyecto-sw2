@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ce84mmtcniwm"
-path="res://.godot/imported/abrir.png-913aa0b7c9789d26050ba0d7a5da7d38.ctex"
+uid="uid://bj36no6dc0gy4"
+path="res://.godot/imported/borrar.png-49fe5e18efc7919037b42e5c74456c97.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/resources/abrir.png"
-dest_files=["res://.godot/imported/abrir.png-913aa0b7c9789d26050ba0d7a5da7d38.ctex"]
+source_file="res://assets/images/borrar.png"
+dest_files=["res://.godot/imported/borrar.png-49fe5e18efc7919037b42e5c74456c97.ctex"]
 
 [params]
 

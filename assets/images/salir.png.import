@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6cgry7lwapkj"
-path="res://.godot/imported/volver.png-e27d0eba8d0c1f0199ce2b61053df29b.ctex"
+uid="uid://dvy5lqaeimcal"
+path="res://.godot/imported/salir.png-641dcf137c0c3d9b8c799808c8e46f7a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/resources/volver.png"
-dest_files=["res://.godot/imported/volver.png-e27d0eba8d0c1f0199ce2b61053df29b.ctex"]
+source_file="res://assets/images/salir.png"
+dest_files=["res://.godot/imported/salir.png-641dcf137c0c3d9b8c799808c8e46f7a.ctex"]
 
 [params]
 

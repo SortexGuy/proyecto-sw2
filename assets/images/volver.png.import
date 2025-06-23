@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://p04v4g1fppy2"
-path="res://.godot/imported/check.png-b6d85ee71b3bc5c18d43f1f0f0ca44fd.ctex"
+uid="uid://c6cgry7lwapkj"
+path="res://.godot/imported/volver.png-e3a428001bf611cb3275c734e2439244.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/resources/check.png"
-dest_files=["res://.godot/imported/check.png-b6d85ee71b3bc5c18d43f1f0f0ca44fd.ctex"]
+source_file="res://assets/images/volver.png"
+dest_files=["res://.godot/imported/volver.png-e3a428001bf611cb3275c734e2439244.ctex"]
 
 [params]
 

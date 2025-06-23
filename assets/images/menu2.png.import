@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4xtqaw3xd2na"
-path="res://.godot/imported/silla.png-6fd0f3697642fb4eed7f0c05bfdbdd27.ctex"
+uid="uid://bl4x033luapqh"
+path="res://.godot/imported/menu2.png-d041cdf48f3ddcf63e17cb608160cfe0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/resources/silla.png"
-dest_files=["res://.godot/imported/silla.png-6fd0f3697642fb4eed7f0c05bfdbdd27.ctex"]
+source_file="res://assets/images/menu2.png"
+dest_files=["res://.godot/imported/menu2.png-d041cdf48f3ddcf63e17cb608160cfe0.ctex"]
 
 [params]
 

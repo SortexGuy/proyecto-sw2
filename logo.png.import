@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvy5lqaeimcal"
-path="res://.godot/imported/salir.png-10003e63cf1835d7a1336fd37fff5409.ctex"
+uid="uid://dmk6fr13fy727"
+path="res://.godot/imported/logo.png-cca8726399059c8d4f806e28e356b14d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/resources/salir.png"
-dest_files=["res://.godot/imported/salir.png-10003e63cf1835d7a1336fd37fff5409.ctex"]
+source_file="res://logo.png"
+dest_files=["res://.godot/imported/logo.png-cca8726399059c8d4f806e28e356b14d.ctex"]
 
 [params]
 

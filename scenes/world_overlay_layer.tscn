@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cklq6bjwo3103"]
 
-[ext_resource type="Texture2D" uid="uid://b5ovgpc7bfu71" path="res://assets/resources/menu1.png" id="1_vaknc"]
-[ext_resource type="Texture2D" uid="uid://ca6mgwjwifak3" path="res://assets/resources/anadir.png" id="2_vaknc"]
+[ext_resource type="Texture2D" uid="uid://b5ovgpc7bfu71" path="res://assets/images/menu1.png" id="1_vaknc"]
+[ext_resource type="Texture2D" uid="uid://ca6mgwjwifak3" path="res://assets/images/anadir.png" id="2_vaknc"]
 
 [node name="WorldOverlayLayer" type="CanvasLayer"]
 
@@ -27,6 +27,7 @@ offset_top = -0.360001
 offset_right = 135.92
 offset_bottom = 135.64
 icon = ExtResource("1_vaknc")
+flat = true
 icon_alignment = 1
 expand_icon = true
 
@@ -47,5 +48,6 @@ clip_contents = true
 custom_minimum_size = Vector2(222, 222)
 layout_mode = 2
 icon = ExtResource("2_vaknc")
+flat = true
 icon_alignment = 1
 expand_icon = true

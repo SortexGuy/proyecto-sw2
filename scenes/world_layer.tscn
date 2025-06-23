@@ -1,8 +1,9 @@
 [gd_scene load_steps=4 format=3 uid="uid://1o34vldnsbvu"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_v3vba"]
-sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
-ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_bottom_color = Color(0.0797146, 0.0333714, 0.075063, 1)
+ground_horizon_color = Color(0.421266, 0.224875, 0.29808, 1)
+use_debanding = false
 
 [sub_resource type="Sky" id="Sky_7ft7k"]
 sky_material = SubResource("ProceduralSkyMaterial_v3vba")

@@ -24,6 +24,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 handle_input_locally = false
@@ -38,10 +39,16 @@ use_collision = true
 flip_faces = true
 size = Vector3(6, 4, 6)
 
-[node name="Marker3D" type="Marker3D" parent="SubViewportContainer/SubViewport/World"]
+[node name="CamPivot" type="Marker3D" parent="SubViewportContainer/SubViewport/World"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
-[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/World/Marker3D"]
-transform = Transform3D(0.707107, -0.353553, 0.612372, 0, 0.866025, 0.5, -0.707107, -0.353553, 0.612372, 8, 8, 8)
+[node name="CamPitch" type="Marker3D" parent="SubViewportContainer/SubViewport/World/CamPivot"]
+unique_name_in_owner = true
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/World/CamPivot/CamPitch"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport/World"]
 environment = SubResource("Environment_s5lql")

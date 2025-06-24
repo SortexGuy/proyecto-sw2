@@ -24,6 +24,7 @@
 [node name="WO_ModelsLayer" parent="Interfaces" instance=ExtResource("3_6wevv")]
 
 [node name="MainWindowLayer" parent="Interfaces" instance=ExtResource("4_e1cbu")]
+visible = false
 
 [node name="MW_LoadProjectLayer" parent="Interfaces" instance=ExtResource("5_mngbo")]
 

@@ -9,7 +9,7 @@ var modelo_en_descarga_id = null
 
 @onready var http := $HTTPRequest
 
-# Botones preexistentes
+
 @onready var boton_mesa_1 := $PanelPrincipal2/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Mesas1/Button
 @onready var boton_mesa_2 := $PanelPrincipal2/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Mesas2/Button
 @onready var boton_mesa_3 := $PanelPrincipal2/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Mesas3/Button
@@ -59,7 +59,7 @@ func _on_boton_modelo_presionado(modelo_id):
 	print(" Botón presionado. Solicitando modelo ID:", modelo_id)
 	modelo_en_descarga_id = int(modelo_id)
 
-	var url_descarga = API_GLTF_URL + str(modelo_en_descarga_id)  # ✅ Ajuste aquí
+	var url_descarga = API_GLTF_URL + str(modelo_en_descarga_id)  
 	print(" Solicitando:", url_descarga)
 	var err = http.request(url_descarga)
 	if err != OK:
@@ -86,7 +86,7 @@ func guardar_metadatos_locales(id, ruta_glb):
 		if typeof(parsed) == TYPE_DICTIONARY:
 			data = parsed
 		else:
-			print(" ⚠️ El archivo de metadatos está vacío o malformado. Se reiniciará.")
+			print("  El archivo de metadatos está vacío o malformado. Se reiniciará.")
 		f.close()
 
 	var modelo = modelos[id]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://vujmsguh4n3"]
+[gd_scene load_steps=7 format=3 uid="uid://vujmsguh4n3"]
 
-[ext_resource type="Texture2D" uid="uid://c4xtqaw3xd2na" path="res://assets/images/silla.png" id="1_r87n0"]
+[ext_resource type="Texture2D" uid="uid://c4xtqaw3xd2na" path="res://assets/resources/silla.png" id="1_r87n0"]
+[ext_resource type="Script" uid="uid://cbepdqyuercfy" path="res://scripts/wo_models_layer.gd" id="1_ryqlg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7nt27"]
 bg_color = Color(0.172549, 0.0941176, 0.164706, 1)
@@ -41,7 +42,7 @@ corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
 [node name="WO_ModelsLayer" type="CanvasLayer"]
-visible = false
+script = ExtResource("1_ryqlg")
 
 [node name="PanelContainer2" type="PanelContainer" parent="."]
 anchors_preset = 8
@@ -67,7 +68,7 @@ theme_override_constants/margin_bottom = 40
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer2/MarginContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer2/MarginContainer/VBoxContainer"]
+[node name="Label0" type="Label" parent="PanelContainer2/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.960784, 0.878431, 0.788235, 1)
 theme_override_font_sizes/font_size = 60
@@ -105,6 +106,13 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_01n6w")
 
+[node name="Label" type="Label" parent="PanelContainer2/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Silla pequeña"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Button" type="Button" parent="PanelContainer2/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/PanelContainer"]
 clip_contents = true
 custom_minimum_size = Vector2(120, 120)
@@ -115,17 +123,17 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_6u1mn")
 icon = ExtResource("1_r87n0")
 expand_icon = true
 
-[node name="Label" type="Label" parent="PanelContainer2/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/PanelContainer"]
+[node name="PanelContainer2" type="PanelContainer" parent="PanelContainer2/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_01n6w")
+
+[node name="Label" type="Label" parent="PanelContainer2/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/PanelContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Silla pequeña"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="PanelContainer2" type="PanelContainer" parent="PanelContainer2/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_01n6w")
 
 [node name="Button" type="Button" parent="PanelContainer2/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/PanelContainer2"]
 clip_contents = true
@@ -136,13 +144,6 @@ size_flags_vertical = 4
 theme_override_styles/normal = SubResource("StyleBoxFlat_6u1mn")
 icon = ExtResource("1_r87n0")
 expand_icon = true
-
-[node name="Label" type="Label" parent="PanelContainer2/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/PanelContainer2"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "Silla pequeña"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="PanelContainer3" type="PanelContainer" parent="PanelContainer2/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
@@ -171,6 +172,13 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_01n6w")
 
+[node name="Label" type="Label" parent="PanelContainer2/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/PanelContainer4"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Silla pequeña"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Button" type="Button" parent="PanelContainer2/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/PanelContainer4"]
 clip_contents = true
 custom_minimum_size = Vector2(120, 120)
@@ -181,17 +189,17 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_6u1mn")
 icon = ExtResource("1_r87n0")
 expand_icon = true
 
-[node name="Label" type="Label" parent="PanelContainer2/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/PanelContainer4"]
+[node name="PanelContainer5" type="PanelContainer" parent="PanelContainer2/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_01n6w")
+
+[node name="Label" type="Label" parent="PanelContainer2/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/PanelContainer5"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Silla pequeña"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="PanelContainer5" type="PanelContainer" parent="PanelContainer2/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_01n6w")
 
 [node name="Button" type="Button" parent="PanelContainer2/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/PanelContainer5"]
 clip_contents = true
@@ -202,13 +210,6 @@ size_flags_vertical = 4
 theme_override_styles/normal = SubResource("StyleBoxFlat_6u1mn")
 icon = ExtResource("1_r87n0")
 expand_icon = true
-
-[node name="Label" type="Label" parent="PanelContainer2/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/PanelContainer5"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "Silla pequeña"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="PanelContainer6" type="PanelContainer" parent="PanelContainer2/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
@@ -231,3 +232,11 @@ size_flags_vertical = 4
 theme_override_styles/normal = SubResource("StyleBoxFlat_6u1mn")
 icon = ExtResource("1_r87n0")
 expand_icon = true
+
+[connection signal="gui_input" from="PanelContainer2/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/PanelContainer/Label" to="." method="_on_label_gui_input"]
+[connection signal="pressed" from="PanelContainer2/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/PanelContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="PanelContainer2/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/PanelContainer2/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="PanelContainer2/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/PanelContainer3/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="PanelContainer2/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/PanelContainer4/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="PanelContainer2/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/PanelContainer5/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="PanelContainer2/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/PanelContainer6/Button" to="." method="_on_button_pressed"]

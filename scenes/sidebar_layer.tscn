@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://yctp56figf5i"]
+[gd_scene load_steps=9 format=3 uid="uid://yctp56figf5i"]
 
-[ext_resource type="Texture2D" uid="uid://bl4x033luapqh" path="res://assets/images/menu2.png" id="1_8dgfv"]
-[ext_resource type="Texture2D" uid="uid://dvy5lqaeimcal" path="res://assets/images/salir.png" id="2_a6bjl"]
+[ext_resource type="Texture2D" uid="uid://bl4x033luapqh" path="res://assets/resources/menu2.png" id="1_8dgfv"]
+[ext_resource type="Script" uid="uid://dcgnixhoiuc6n" path="res://scripts/sidebar_layer.gd" id="1_a6bjl"]
+[ext_resource type="Texture2D" uid="uid://dvy5lqaeimcal" path="res://assets/resources/salir.png" id="2_a6bjl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pw63i"]
 bg_color = Color(0.172549, 0.0941176, 0.164706, 0.956863)
@@ -23,7 +24,7 @@ shadow_color = Color(0, 0, 0, 0.682353)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7ykc4"]
 
 [node name="SidebarLayer" type="CanvasLayer"]
-visible = false
+script = ExtResource("1_a6bjl")
 
 [node name="PanelPrincipal" type="PanelContainer" parent="."]
 anchors_preset = -1
@@ -134,3 +135,10 @@ theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_7ykc4")
 text = "Info"
 vertical_icon_alignment = 2
+
+[connection signal="pressed" from="PanelPrincipal/SideVista1/VBoxContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="PanelPrincipal/SideVista1/VBoxContainer/BotonModelos" to="." method="_on_boton_modelos_pressed"]
+[connection signal="pressed" from="PanelPrincipal/SideVista1/VBoxContainer/Modificar Escalas" to="." method="_on_modificar_escalas_pressed"]
+[connection signal="pressed" from="PanelPrincipal/SideVista1/VBoxContainer/Importar Modelos" to="." method="_on_importar_modelos_pressed"]
+[connection signal="pressed" from="PanelPrincipal/SideVista1/VBoxContainer/GuardarP" to="." method="_on_guardar_p_pressed"]
+[connection signal="pressed" from="PanelPrincipal/SideVista1/VBoxContainer/Control/BotonSalir" to="." method="_on_boton_salir_pressed"]

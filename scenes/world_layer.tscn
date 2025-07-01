@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://1o34vldnsbvu"]
+[gd_scene load_steps=5 format=3 uid="uid://1o34vldnsbvu"]
+
+[ext_resource type="Script" uid="uid://c3ms7iddce43p" path="res://scripts/world_layer.gd" id="1_7ft7k"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_v3vba"]
 ground_bottom_color = Color(0.0797146, 0.0333714, 0.075063, 1)
@@ -14,6 +16,7 @@ sky = SubResource("Sky_7ft7k")
 tonemap_mode = 2
 
 [node name="WorldLayer" type="CanvasLayer"]
+script = ExtResource("1_7ft7k")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 anchors_preset = 15

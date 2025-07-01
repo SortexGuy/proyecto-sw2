@@ -1,1 +1,0 @@
-En esta carpeta está el modelo que utilicé para cargar a turso y posteriormente descargarlo desde godot. No es la misma carpeta de descargas. La carpeta en donde se guardan las descargas se llama "downloads".

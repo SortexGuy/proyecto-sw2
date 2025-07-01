@@ -151,12 +151,12 @@ theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_rt2n2")
 text = "+"
 
-[node name="Mesas 3" type="Label" parent="PanelPrincipal2/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+[node name="Mesas3" type="Label" parent="PanelPrincipal2/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "     Mesas grandes (6)"
 
-[node name="Button" type="Button" parent="PanelPrincipal2/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Mesas 3"]
+[node name="Button" type="Button" parent="PanelPrincipal2/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Mesas3"]
 clip_contents = true
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 1
@@ -429,3 +429,5 @@ text = " Volver "
 vertical_icon_alignment = 2
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[connection signal="pressed" from="PanelPrincipal2/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/BotonVolver" to="." method="_on_boton_volver_pressed"]

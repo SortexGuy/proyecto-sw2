@@ -102,3 +102,7 @@ func guardar_metadatos_locales(id, ruta_glb):
 	f_save.store_string(JSON.stringify(data, "\t"))
 	f_save.close()
 	print(" Metadatos guardados.")
+
+#Botón volver
+func _on_boton_volver_pressed():
+	self.visible = false

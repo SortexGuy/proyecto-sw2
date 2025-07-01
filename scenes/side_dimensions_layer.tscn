@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://bxw6bou2o7loj"]
+[gd_scene load_steps=9 format=3 uid="uid://bxw6bou2o7loj"]
 
+[ext_resource type="Script" uid="uid://bboebjh8uuuwi" path="res://scenes/side_dimensions_layer.gd" id="1_7mn1q"]
 [ext_resource type="Texture2D" uid="uid://c6cgry7lwapkj" path="res://assets/images/volver.png" id="1_pamtj"]
 [ext_resource type="Texture2D" uid="uid://p04v4g1fppy2" path="res://assets/images/check.png" id="2_7mn1q"]
 
@@ -37,7 +38,7 @@ corner_radius_bottom_right = 40
 corner_radius_bottom_left = 40
 
 [node name="Side_DimensionsLayer" type="CanvasLayer"]
-visible = false
+script = ExtResource("1_7mn1q")
 
 [node name="PanelPrincipal2" type="PanelContainer" parent="."]
 anchors_preset = -1
@@ -73,7 +74,7 @@ theme_override_styles/separator = SubResource("StyleBoxFlat_pu3yx")
 [node name="Label2" type="Label" parent="PanelPrincipal2/Margen/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-text = "Puedes editar la anchura y profundidad tomando en cuenta las medidas que se trabajan en xx xx xx ay no sé pongan una info aqui para que no se vea tan vacio nojoda todo yo mamaguevos"
+text = "Edita la anchura y la profundidad de tu proyecto con las dimensiones de la habitación que deseas remodelar."
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
@@ -170,3 +171,5 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_6wevv")
 text = "Aplicar "
 icon = ExtResource("2_7mn1q")
 expand_icon = true
+
+[connection signal="pressed" from="PanelPrincipal2/Margen/VBoxContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]

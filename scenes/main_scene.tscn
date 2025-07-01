@@ -16,6 +16,7 @@
 [node name="World" type="Node" parent="."]
 
 [node name="WorldLayer" parent="World" instance=ExtResource("1_pw63i")]
+visible = false
 
 [node name="Interfaces" type="Node" parent="."]
 
@@ -23,19 +24,24 @@
 visible = false
 
 [node name="WO_ModelsLayer" parent="Interfaces" instance=ExtResource("3_6wevv")]
-
-[node name="MainWindowLayer" parent="Interfaces" instance=ExtResource("4_e1cbu")]
 visible = false
 
+[node name="MainWindowLayer" parent="Interfaces" instance=ExtResource("4_e1cbu")]
+
 [node name="MW_LoadProjectLayer" parent="Interfaces" instance=ExtResource("5_mngbo")]
+visible = false
 
 [node name="SidebarLayer" parent="Interfaces" instance=ExtResource("6_4w45t")]
+visible = false
 
 [node name="Side_StoreLayer" parent="Interfaces" instance=ExtResource("7_r6p65")]
-visible = true
+visible = false
 
 [node name="Side_DimensionsLayer" parent="Interfaces" instance=ExtResource("8_si52b")]
+visible = false
 
 [node name="Side_ImportLayer" parent="Interfaces" instance=ExtResource("9_01n6w")]
+visible = false
 
 [node name="Side_SaveLayer" parent="Interfaces" instance=ExtResource("10_6u1mn")]
+visible = false

@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://48r4mu6p1wfm"]
+[gd_scene load_steps=12 format=3 uid="uid://48r4mu6p1wfm"]
 
 [ext_resource type="Texture2D" uid="uid://bkcl04h1sts0e" path="res://assets/images/cargar.png" id="1_ugrfk"]
+[ext_resource type="Script" uid="uid://da356j4h70mc3" path="res://scenes/side_import_layer.gd" id="1_ykxeq"]
 [ext_resource type="Texture2D" uid="uid://c4xtqaw3xd2na" path="res://assets/images/silla.png" id="2_ykxeq"]
 [ext_resource type="Texture2D" uid="uid://c6cgry7lwapkj" path="res://assets/images/volver.png" id="3_vyt7h"]
 [ext_resource type="Texture2D" uid="uid://p04v4g1fppy2" path="res://assets/images/check.png" id="4_bsmkn"]
@@ -55,7 +56,7 @@ corner_radius_bottom_right = 40
 corner_radius_bottom_left = 40
 
 [node name="Side_ImportLayer" type="CanvasLayer"]
-visible = false
+script = ExtResource("1_ykxeq")
 
 [node name="PanelPrincipal2" type="PanelContainer" parent="."]
 anchors_preset = -1
@@ -189,3 +190,5 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_6wevv")
 text = "Subir "
 icon = ExtResource("4_bsmkn")
 expand_icon = true
+
+[connection signal="pressed" from="PanelPrincipal2/Margen/VBoxContainer/HBoxContainer2/Button" to="." method="_on_button_pressed"]

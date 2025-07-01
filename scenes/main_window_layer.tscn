@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://fmp4keeqd6u8"]
+[gd_scene load_steps=5 format=3 uid="uid://fmp4keeqd6u8"]
 
+[ext_resource type="Script" uid="uid://cgxh1fdkt1mhu" path="res://scripts/main_window_layer.gd" id="1_j1d1y"]
 [ext_resource type="Texture2D" uid="uid://dmk6fr13fy727" path="res://logo.png" id="1_wbn6j"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c16ls"]
@@ -15,6 +16,7 @@ corner_radius_bottom_right = 50
 corner_radius_bottom_left = 50
 
 [node name="MainWindowLayer" type="CanvasLayer"]
+script = ExtResource("1_j1d1y")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 custom_minimum_size = Vector2(1080, 1920)
@@ -98,3 +100,7 @@ theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_18nlu")
 text = "Cerrar"
 icon_alignment = 1
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Crear Proyecto" to="." method="_on_crear_proyecto_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Cargar Proyecto" to="." method="_on_cargar_proyecto_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Cerrar" to="." method="_on_cerrar_pressed"]

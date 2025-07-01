@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://c8gpg22jerfor"]
+[gd_scene load_steps=10 format=3 uid="uid://c8gpg22jerfor"]
 
+[ext_resource type="Script" uid="uid://butgpc2dtiqs0" path="res://scripts/mw_load_project_layer.gd" id="1_s0ltm"]
 [ext_resource type="Texture2D" uid="uid://dmk6fr13fy727" path="res://logo.png" id="1_xdo37"]
-[ext_resource type="Texture2D" uid="uid://c6cgry7lwapkj" path="res://assets/images/volver.png" id="2_s0ltm"]
-[ext_resource type="Texture2D" uid="uid://ce84mmtcniwm" path="res://assets/images/abrir.png" id="3_yi865"]
-[ext_resource type="Texture2D" uid="uid://bj36no6dc0gy4" path="res://assets/images/borrar.png" id="4_xclwq"]
+[ext_resource type="Texture2D" uid="uid://c6cgry7lwapkj" path="res://assets/resources/volver.png" id="2_s0ltm"]
+[ext_resource type="Texture2D" uid="uid://ce84mmtcniwm" path="res://assets/resources/abrir.png" id="3_yi865"]
+[ext_resource type="Texture2D" uid="uid://bj36no6dc0gy4" path="res://assets/resources/borrar.png" id="4_xclwq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c16ls"]
 bg_color = Color(0.172549, 0.0941176, 0.164706, 1)
@@ -31,7 +32,7 @@ corner_radius_bottom_left = 40
 [sub_resource type="Theme" id="Theme_gubc5"]
 
 [node name="MW_LoadProjectLayer" type="CanvasLayer"]
-visible = false
+script = ExtResource("1_s0ltm")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 custom_minimum_size = Vector2(1080, 1920)
@@ -74,7 +75,7 @@ theme_override_constants/separation = 30
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Button0" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(180, 124)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -459,3 +460,5 @@ size_flags_horizontal = 8
 icon = ExtResource("4_xclwq")
 icon_alignment = 1
 expand_icon = true
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Button0" to="." method="_on_button_0_pressed"]

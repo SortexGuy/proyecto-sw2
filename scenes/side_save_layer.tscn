@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://8xqixf1ah4kx"]
+[gd_scene load_steps=7 format=3 uid="uid://8xqixf1ah4kx"]
 
-[ext_resource type="Texture2D" uid="uid://p04v4g1fppy2" path="res://assets/images/check.png" id="1_fm7kw"]
+[ext_resource type="Script" uid="uid://buf71fmjeui2x" path="res://scripts/side_save_layer.gd" id="1_62ky5"]
+[ext_resource type="Texture2D" uid="uid://p04v4g1fppy2" path="res://assets/resources/check.png" id="1_fm7kw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bcnxi"]
 content_margin_left = 20.0
@@ -43,7 +44,7 @@ corner_radius_bottom_right = 40
 corner_radius_bottom_left = 40
 
 [node name="Side_SaveLayer" type="CanvasLayer"]
-visible = false
+script = ExtResource("1_62ky5")
 
 [node name="PanelContainer2" type="PanelContainer" parent="."]
 anchors_preset = 8
@@ -137,3 +138,5 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_6wevv")
 text = "Guardar"
 icon = ExtResource("1_fm7kw")
 expand_icon = true
+
+[connection signal="pressed" from="PanelContainer2/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Button2" to="." method="_on_button_2_pressed"]

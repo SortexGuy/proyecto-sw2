@@ -46,11 +46,11 @@ func _on_https_request_completed(_result, response_code, _headers, body):
 
 func _asignar_boton_existente(modelo):
 	match modelo.name:
-		"mesa":
+		"Mesa":
 			boton_mesa_1.pressed.connect(func(): _on_boton_modelo_presionado(int(modelo.id)))
-		"mesa_2":
+		"Mesa_2":
 			boton_mesa_2.pressed.connect(func(): _on_boton_modelo_presionado(int(modelo.id)))
-		"mesa_3":
+		"Mesa_3":
 			boton_mesa_3.pressed.connect(func(): _on_boton_modelo_presionado(int(modelo.id)))
 		_:
 			print(" No hay botón predefinido para:", modelo.name)
@@ -58,6 +58,12 @@ func _asignar_boton_existente(modelo):
 func _on_boton_modelo_presionado(modelo_id):
 	print(" Botón presionado. Solicitando modelo ID:", modelo_id)
 	modelo_en_descarga_id = int(modelo_id)
+	var ruta = "downloads/modelo_" + str(modelo_en_descarga_id) + ".glb"
+	
+	if FileAccess.file_exists(ruta):
+		print("El modelo ya se encuentra disponible en la aplicación.")
+		modelo_en_descarga_id = null
+		return
 
 	var url_descarga = API_GLTF_URL + str(modelo_en_descarga_id)  
 	print(" Solicitando:", url_descarga)
@@ -66,8 +72,8 @@ func _on_boton_modelo_presionado(modelo_id):
 		print(" Error solicitando .glb del modelo:", modelo_en_descarga_id)
 
 func guardar_archivo_glb(bytes):
-	var ruta = "user://modelo_" + str(modelo_en_descarga_id) + ".glb"
-	print("Guardando .glb en:", ruta)
+	var ruta = "downloads/modelo_" + str(modelo_en_descarga_id) + ".glb"
+	print("Guardando .glb en: ", ruta)
 	var file = FileAccess.open(ruta, FileAccess.WRITE)
 	file.store_buffer(bytes)
 	file.close()

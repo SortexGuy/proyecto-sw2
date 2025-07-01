@@ -1,0 +1,194 @@
+[gd_scene load_steps=12 format=3 uid="uid://48r4mu6p1wfm"]
+
+[ext_resource type="Texture2D" uid="uid://bkcl04h1sts0e" path="res://assets/resources/cargar.png" id="1_ugrfk"]
+[ext_resource type="Script" uid="uid://ccmffitnw68kb" path="res://scripts/side_import_layer.gd" id="1_ykxeq"]
+[ext_resource type="Texture2D" uid="uid://c4xtqaw3xd2na" path="res://assets/resources/silla.png" id="2_ykxeq"]
+[ext_resource type="Texture2D" uid="uid://c6cgry7lwapkj" path="res://assets/resources/volver.png" id="3_vyt7h"]
+[ext_resource type="Texture2D" uid="uid://p04v4g1fppy2" path="res://assets/resources/check.png" id="4_bsmkn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pw63i"]
+bg_color = Color(0.172549, 0.0941176, 0.164706, 0.956863)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pu3yx"]
+bg_color = Color(1, 1, 1, 1)
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_detail = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mngbo"]
+content_margin_left = 20.0
+content_margin_top = 10.0
+content_margin_right = 0.0
+content_margin_bottom = 18.0
+bg_color = Color(0.117647, 0.0705882, 0.0666667, 1)
+border_width_bottom = 10
+border_color = Color(0.0901961, 0.0392157, 0.0470588, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4w45t"]
+content_margin_left = 15.0
+bg_color = Color(0.117647, 0.0705882, 0.0666667, 1)
+border_width_bottom = 5
+border_color = Color(0.0901961, 0.0392157, 0.0470588, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r6p65"]
+bg_color = Color(0.137255, 0.0666667, 0.0941176, 1)
+corner_radius_top_left = 80
+corner_radius_top_right = 80
+corner_radius_bottom_right = 80
+corner_radius_bottom_left = 80
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6wevv"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0.117647, 0.0705882, 0.0666667, 1)
+border_width_bottom = 10
+border_color = Color(0.0901961, 0.0392157, 0.0470588, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[node name="Side_ImportLayer" type="CanvasLayer"]
+script = ExtResource("1_ykxeq")
+
+[node name="PanelPrincipal2" type="PanelContainer" parent="."]
+anchors_preset = -1
+anchor_right = 0.556
+anchor_bottom = 1.0
+offset_right = 479.52
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pw63i")
+
+[node name="Margen" type="MarginContainer" parent="PanelPrincipal2"]
+layout_mode = 2
+theme_override_constants/margin_left = 70
+theme_override_constants/margin_top = 70
+theme_override_constants/margin_right = 70
+theme_override_constants/margin_bottom = 70
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelPrincipal2/Margen"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="PanelPrincipal2/Margen/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.960784, 0.878431, 0.788235, 1)
+theme_override_font_sizes/font_size = 80
+text = "Importar"
+
+[node name="HSeparator" type="HSeparator" parent="PanelPrincipal2/Margen/VBoxContainer"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+theme_override_constants/separation = 50
+theme_override_styles/separator = SubResource("StyleBoxFlat_pu3yx")
+
+[node name="HSeparator3" type="HSeparator" parent="PanelPrincipal2/Margen/VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 200
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelPrincipal2/Margen/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelPrincipal2/Margen/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label2" type="Label" parent="PanelPrincipal2/Margen/VBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Archivo: "
+
+[node name="Button" type="Button" parent="PanelPrincipal2/Margen/VBoxContainer/VBoxContainer/HBoxContainer2"]
+clip_contents = true
+custom_minimum_size = Vector2(400, 82)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_mngbo")
+text = "Cargar archivo"
+icon = ExtResource("1_ugrfk")
+expand_icon = true
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="PanelPrincipal2/Margen/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label3" type="Label" parent="PanelPrincipal2/Margen/VBoxContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Nombre: "
+
+[node name="LineEdit" type="LineEdit" parent="PanelPrincipal2/Margen/VBoxContainer/VBoxContainer/HBoxContainer3"]
+clip_contents = true
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_4w45t")
+text = "nombreprueba"
+
+[node name="HSeparator2" type="HSeparator" parent="PanelPrincipal2/Margen/VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 200
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelPrincipal2/Margen/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_r6p65")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelPrincipal2/Margen/VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 80
+
+[node name="TextureRect" type="TextureRect" parent="PanelPrincipal2/Margen/VBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_ykxeq")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HSeparator4" type="HSeparator" parent="PanelPrincipal2/Margen/VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 200
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelPrincipal2/Margen/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 50
+
+[node name="Button" type="Button" parent="PanelPrincipal2/Margen/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(300, 120)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_6wevv")
+text = " Volver "
+icon = ExtResource("3_vyt7h")
+expand_icon = true
+
+[node name="Button2" type="Button" parent="PanelPrincipal2/Margen/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(300, 120)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_6wevv")
+text = "Subir "
+icon = ExtResource("4_bsmkn")
+expand_icon = true
+
+[connection signal="pressed" from="PanelPrincipal2/Margen/VBoxContainer/HBoxContainer2/Button" to="." method="_on_button_pressed"]

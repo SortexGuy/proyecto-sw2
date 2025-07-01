@@ -1,0 +1,142 @@
+[gd_scene load_steps=7 format=3 uid="uid://8xqixf1ah4kx"]
+
+[ext_resource type="Script" uid="uid://buf71fmjeui2x" path="res://scripts/side_save_layer.gd" id="1_62ky5"]
+[ext_resource type="Texture2D" uid="uid://p04v4g1fppy2" path="res://assets/resources/check.png" id="1_fm7kw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bcnxi"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0.172549, 0.0941176, 0.164706, 1)
+border_color = Color(0.172549, 0.0941176, 0.164706, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+shadow_color = Color(0.461066, 0.211936, 0.575188, 1)
+shadow_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_si52b"]
+bg_color = Color(0.137255, 0.0666667, 0.0941176, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4w45t"]
+content_margin_left = 15.0
+bg_color = Color(0.117647, 0.0705882, 0.0666667, 1)
+border_width_bottom = 5
+border_color = Color(0.0901961, 0.0392157, 0.0470588, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6wevv"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0.117647, 0.0705882, 0.0666667, 1)
+border_width_bottom = 10
+border_color = Color(0.0901961, 0.0392157, 0.0470588, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[node name="Side_SaveLayer" type="CanvasLayer"]
+script = ExtResource("1_62ky5")
+
+[node name="PanelContainer2" type="PanelContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -430.0
+offset_top = -430.0
+offset_right = 430.0
+offset_bottom = 430.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_bcnxi")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer2/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.960784, 0.878431, 0.788235, 1)
+theme_override_font_sizes/font_size = 60
+text = "Guardar proyecto"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_si52b")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer2/MarginContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer2/MarginContainer/VBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer2/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer2/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label3" type="Label" parent="PanelContainer2/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Nombre: "
+
+[node name="LineEdit" type="LineEdit" parent="PanelContainer2/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_4w45t")
+text = "nombreprueba"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer2/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Button2" type="Button" parent="PanelContainer2/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(300, 120)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_6wevv")
+text = "Guardar"
+icon = ExtResource("1_fm7kw")
+expand_icon = true
+
+[connection signal="pressed" from="PanelContainer2/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Button2" to="." method="_on_button_2_pressed"]

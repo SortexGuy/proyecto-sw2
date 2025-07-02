@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://yctp56figf5i"]
 
-[ext_resource type="Texture2D" uid="uid://bl4x033luapqh" path="res://assets/resources/menu2.png" id="1_8dgfv"]
-[ext_resource type="Script" uid="uid://dcgnixhoiuc6n" path="res://scripts/sidebar_layer.gd" id="1_a6bjl"]
-[ext_resource type="Texture2D" uid="uid://dvy5lqaeimcal" path="res://assets/resources/salir.png" id="2_a6bjl"]
+[ext_resource type="Texture2D" uid="uid://bl4x033luapqh" path="res://assets/images/menu2.png" id="1_8dgfv"]
+[ext_resource type="Script" uid="uid://q0yhx30115jw" path="res://scripts/sidebar_layer.gd" id="1_a6bjl"]
+[ext_resource type="Texture2D" uid="uid://dvy5lqaeimcal" path="res://assets/images/salir.png" id="2_a6bjl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pw63i"]
 bg_color = Color(0.172549, 0.0941176, 0.164706, 0.956863)

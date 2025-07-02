@@ -3,6 +3,9 @@
 /android/
 # Extra
 .env
+*.glb
+models/
+downloads/
 
 # Build results
 [Dd]ebug/

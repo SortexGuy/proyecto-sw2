@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://1o34vldnsbvu"]
 
-[ext_resource type="Script" uid="uid://c3ms7iddce43p" path="res://scripts/world_layer.gd" id="1_7ft7k"]
+[ext_resource type="Script" uid="uid://cnqrljx82lve2" path="res://scripts/world_layer.gd" id="1_7ft7k"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_v3vba"]
 ground_bottom_color = Color(0.0797146, 0.0333714, 0.075063, 1)

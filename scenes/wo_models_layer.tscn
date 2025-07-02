@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://vujmsguh4n3"]
 
-[ext_resource type="Texture2D" uid="uid://c4xtqaw3xd2na" path="res://assets/resources/silla.png" id="1_r87n0"]
-[ext_resource type="Script" uid="uid://cbepdqyuercfy" path="res://scripts/wo_models_layer.gd" id="1_ryqlg"]
+[ext_resource type="Texture2D" uid="uid://c4xtqaw3xd2na" path="res://assets/images/silla.png" id="1_r87n0"]
+[ext_resource type="Script" uid="uid://bry10mlgtqwlg" path="res://scripts/wo_models_layer.gd" id="1_ryqlg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7nt27"]
 bg_color = Color(0.172549, 0.0941176, 0.164706, 1)

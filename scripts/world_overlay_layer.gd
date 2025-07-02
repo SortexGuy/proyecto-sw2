@@ -6,7 +6,7 @@ extends CanvasLayer
 #Hace aparecer el SidebarLayer
 func _on_button_pressed():
 	Sidebar.visible = true
-	
+
 #Hace aparecer la ventana de modelos
 func _on_button_2_pressed():
 	modelos.visible = true

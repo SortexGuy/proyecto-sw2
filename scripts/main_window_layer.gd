@@ -13,8 +13,6 @@ func _on_cargar_proyecto_pressed():
 	cargar.visible = true
 	self.visible = false
 
-
-
 #Para salir
 func _on_cerrar_pressed():
 	get_tree().quit()

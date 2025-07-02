@@ -9,7 +9,6 @@ var modelo_en_descarga_id = null
 
 @onready var http := $HTTPRequest
 
-
 @onready var boton_mesa_1 := $PanelPrincipal2/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Mesas1/Button
 @onready var boton_mesa_2 := $PanelPrincipal2/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Mesas2/Button
 @onready var boton_mesa_3 := $PanelPrincipal2/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Mesas3/Button
@@ -27,7 +26,6 @@ func obtener_modelos_del_backend():
 
 func _on_https_request_completed(_result, response_code, _headers, body):
 	print(" Respuesta HTTP recibida. Código:", response_code, " Modelo en descarga:", modelo_en_descarga_id)
-
 	if response_code == 200 and body.size() > 0:
 		if modelo_en_descarga_id == null:
 			print(" Cargando lista de modelos")
@@ -64,7 +62,7 @@ func _on_boton_modelo_presionado(modelo_id):
 		print("El modelo ya se encuentra disponible en la aplicación.")
 		modelo_en_descarga_id = null
 		return
-
+	
 	var url_descarga = API_GLTF_URL + str(modelo_en_descarga_id)  
 	print(" Solicitando:", url_descarga)
 	var err = http.request(url_descarga)
@@ -77,14 +75,13 @@ func guardar_archivo_glb(bytes):
 	var file = FileAccess.open(ruta, FileAccess.WRITE)
 	file.store_buffer(bytes)
 	file.close()
-
+	
 	guardar_metadatos_locales(modelo_en_descarga_id, ruta)
 	modelo_en_descarga_id = null
 
 func guardar_metadatos_locales(id, ruta_glb):
 	print(" Guardando metadatos para el modelo ID:", id)
 	var data := {}
-
 	if FileAccess.file_exists(META_LOCAL_PATH):
 		var f = FileAccess.open(META_LOCAL_PATH, FileAccess.READ)
 		var contenido = f.get_as_text()
@@ -94,7 +91,7 @@ func guardar_metadatos_locales(id, ruta_glb):
 		else:
 			print("  El archivo de metadatos está vacío o malformado. Se reiniciará.")
 		f.close()
-
+	
 	var modelo = modelos[id]
 	data[str(id)] = {
 		"name": modelo.name,
@@ -103,7 +100,7 @@ func guardar_metadatos_locales(id, ruta_glb):
 		"subcategories": modelo.subcategories,
 		"local_path": ruta_glb
 	}
-
+	
 	var f_save = FileAccess.open(META_LOCAL_PATH, FileAccess.WRITE)
 	f_save.store_string(JSON.stringify(data, "\t"))
 	f_save.close()

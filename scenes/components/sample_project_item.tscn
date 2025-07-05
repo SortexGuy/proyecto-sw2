@@ -1,0 +1,71 @@
+[gd_scene load_steps=8 format=3 uid="uid://lp6jx05upls5"]
+
+[ext_resource type="Script" uid="uid://u0srusxr0oyd" path="res://scripts/components/sample_project_item.gd" id="1_q7whk"]
+[ext_resource type="Texture2D" uid="uid://ce84mmtcniwm" path="res://assets/images/abrir.png" id="1_vj2ts"]
+[ext_resource type="Texture2D" uid="uid://bj36no6dc0gy4" path="res://assets/images/borrar.png" id="2_q7whk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l3fnk"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.14, 0.1092, 0.1092, 0.556863)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q7whk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l3fnk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q7whk"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.14, 0.1092, 0.1092, 0.784314)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="SampleProjectItem" type="HBoxContainer"]
+theme_override_constants/separation = 16
+script = ExtResource("1_q7whk")
+
+[node name="ProjectLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Proyecto_1"
+
+[node name="PreviewButton" type="Button" parent="."]
+unique_name_in_owner = true
+clip_contents = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/focus = SubResource("StyleBoxFlat_l3fnk")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_q7whk")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_l3fnk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_q7whk")
+theme_override_styles/normal = SubResource("StyleBoxFlat_l3fnk")
+icon = ExtResource("1_vj2ts")
+icon_alignment = 1
+expand_icon = true
+
+[node name="DeleteButton" type="Button" parent="."]
+unique_name_in_owner = true
+clip_contents = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_styles/focus = SubResource("StyleBoxFlat_l3fnk")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_q7whk")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_l3fnk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_q7whk")
+theme_override_styles/normal = SubResource("StyleBoxFlat_l3fnk")
+icon = ExtResource("2_q7whk")
+icon_alignment = 1
+expand_icon = true

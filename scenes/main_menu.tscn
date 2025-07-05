@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=3 uid="uid://6qqjyxoxx3c6"]
+
+[ext_resource type="Script" uid="uid://brocr5s0o1ulq" path="res://scripts/main_menu.gd" id="1_bqqt6"]
+[ext_resource type="PackedScene" uid="uid://fmp4keeqd6u8" path="res://scenes/components/main_window_layer.tscn" id="1_ekxnf"]
+[ext_resource type="Theme" uid="uid://d2ab3x6jia6ha" path="res://assets/resources/main_theme.theme" id="2_8ln24"]
+[ext_resource type="PackedScene" uid="uid://c8gpg22jerfor" path="res://scenes/components/mw_load_project_layer.tscn" id="2_bqqt6"]
+[ext_resource type="Texture2D" uid="uid://dmk6fr13fy727" path="res://logo.png" id="2_wu84c"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_rtw2f"]
+color = Color(0.8, 0.8, 0.8, 0.705882)
+thickness = 6
+
+[node name="MainMenu" type="Node"]
+script = ExtResource("1_bqqt6")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(1080, 1920)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_8ln24")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 150
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 80
+
+[node name="MainContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+clip_contents = true
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="LogoTextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/MainContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_direction = 1
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("2_wu84c")
+stretch_mode = 3
+
+[node name="MainLabel" type="Label" parent="PanelContainer/MarginContainer/MainContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.960784, 0.878431, 0.788235, 1)
+theme_override_font_sizes/font_size = 120
+text = "DOMUS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/MainContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+theme_override_styles/separator = SubResource("StyleBoxLine_rtw2f")
+
+[node name="MainWindowLayer" parent="PanelContainer/MarginContainer/MainContainer" instance=ExtResource("1_ekxnf")]
+unique_name_in_owner = true
+
+[node name="MW_LoadProjectLayer" parent="PanelContainer/MarginContainer/MainContainer" instance=ExtResource("2_bqqt6")]
+unique_name_in_owner = true
+offset = Vector2(1080, 0)
+transform = Transform2D(1, 0, 0, 1, 1080, 0)

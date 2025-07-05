@@ -18,6 +18,7 @@
 
 [node name="Interfaces" type="Node" parent="."]
 script = ExtResource("2_e1cbu")
+main_menu_scene = "uid://6qqjyxoxx3c6"
 
 [node name="WorldOverlayLayer" parent="Interfaces" instance=ExtResource("1_w2twt")]
 unique_name_in_owner = true

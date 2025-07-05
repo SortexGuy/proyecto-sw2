@@ -1,7 +1,7 @@
 class_name Interfaces
 extends Node
 
-#@export var main_menu_scene: PackedScene
+@export_file("*.tscn", "*.scn") var main_menu_scene: String = "res://scenes/main_menu.tscn"
 @onready var wo_layer: CanvasLayer = %WorldOverlayLayer
 @onready var wo_models_layer: CanvasLayer = %WO_ModelsLayer
 @onready var sidebar_layer: SidebarLayer = %SidebarLayer
@@ -16,5 +16,5 @@ func _ready():
 	wo_layer.visible = true
 
 func _on_exit_button_pressed() -> void:
-	#get_tree().change_scene_to_packed(main_menu_scene)
+	get_tree().change_scene_to_file(main_menu_scene)
 	pass

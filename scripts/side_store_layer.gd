@@ -12,8 +12,10 @@ var modelo_en_descarga_id = null
 @onready var boton_mesa_1 := $PanelPrincipal2/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Mesas1/Button
 @onready var boton_mesa_2 := $PanelPrincipal2/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Mesas2/Button
 @onready var boton_mesa_3 := $PanelPrincipal2/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Mesas3/Button
+@onready var back_button: Button = %BackButton
 
 func _ready():
+	back_button.pressed.connect(_on_back_button_pressed)
 	print(" Conectando y solicitando modelos...")
 	http.request_completed.connect(_on_https_request_completed)
 	obtener_modelos_del_backend()
@@ -107,5 +109,5 @@ func guardar_metadatos_locales(id, ruta_glb):
 	print(" Metadatos guardados.")
 
 #Botón volver
-func _on_boton_volver_pressed():
+func _on_back_button_pressed():
 	self.visible = false

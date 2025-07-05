@@ -1,11 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://dkskpavqya0o2"]
+[gd_scene load_steps=10 format=3 uid="uid://dkskpavqya0o2"]
 
 [ext_resource type="PackedScene" uid="uid://1o34vldnsbvu" path="res://scenes/world_layer.tscn" id="1_pw63i"]
 [ext_resource type="PackedScene" uid="uid://cklq6bjwo3103" path="res://scenes/world_overlay_layer.tscn" id="1_w2twt"]
-[ext_resource type="Script" uid="uid://ceu81b8kl6i2e" path="res://scripts/interfaces.gd" id="2_e1cbu"]
+[ext_resource type="Script" uid="uid://ceu81b8kl6i2e" path="res://scripts/components/interfaces.gd" id="2_e1cbu"]
 [ext_resource type="PackedScene" uid="uid://vujmsguh4n3" path="res://scenes/wo_models_layer.tscn" id="3_6wevv"]
-[ext_resource type="PackedScene" uid="uid://fmp4keeqd6u8" path="res://scenes/main_window_layer.tscn" id="4_e1cbu"]
-[ext_resource type="PackedScene" uid="uid://c8gpg22jerfor" path="res://scenes/mw_load_project_layer.tscn" id="5_mngbo"]
 [ext_resource type="PackedScene" uid="uid://yctp56figf5i" path="res://scenes/sidebar_layer.tscn" id="6_4w45t"]
 [ext_resource type="PackedScene" uid="uid://cgpr7bakr25xp" path="res://scenes/side_store_layer.tscn" id="7_r6p65"]
 [ext_resource type="PackedScene" uid="uid://bxw6bou2o7loj" path="res://scenes/side_dimensions_layer.tscn" id="8_si52b"]
@@ -20,14 +18,6 @@
 
 [node name="Interfaces" type="Node" parent="."]
 script = ExtResource("2_e1cbu")
-
-[node name="MainWindowLayer" parent="Interfaces" instance=ExtResource("4_e1cbu")]
-unique_name_in_owner = true
-visible = false
-
-[node name="MW_LoadProjectLayer" parent="Interfaces" instance=ExtResource("5_mngbo")]
-unique_name_in_owner = true
-visible = false
 
 [node name="WorldOverlayLayer" parent="Interfaces" instance=ExtResource("1_w2twt")]
 unique_name_in_owner = true

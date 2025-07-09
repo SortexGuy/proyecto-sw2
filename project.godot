@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Domus App"
-run/main_scene="uid://dkskpavqya0o2"
+run/main_scene="uid://6qqjyxoxx3c6"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="domus_app"
 config/features=PackedStringArray("4.4", "GL Compatibility")

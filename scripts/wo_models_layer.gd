@@ -4,13 +4,13 @@ extends CanvasLayer
 signal model_selected(url)
 
 # 1. Carga la escena de la plantilla del botón.
-const MODEL_BUTTON_SCENE = preload("res://scenes/container/model_button.tscn")
+const MODEL_BUTTON_SCENE = preload("res://scenes/components/model_button.tscn")
 # 2. Define la ruta donde están tus modelos 3D. ¡Asegúrate de que esta ruta es correcta!
 const MODELS_PATH = "res://models"
 
 # 3. Referencia al contenedor donde se añadirán los botones.
 # Usa la ruta de nodos correcta desde WO_ModelsLayer.
-@onready var buttons_container = $PanelContainer2/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/ScrollContainer/ButtonsContainer
+@onready var buttons_container = %ButtonsContainer
 
 func _ready() -> void:
 	# Llama a la función para generar los botones cuando la escena esté lista.

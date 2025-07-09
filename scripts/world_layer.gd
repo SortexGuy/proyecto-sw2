@@ -1,29 +1,41 @@
-extends CanvasLayer
+extends SubViewportContainer
 
-# --- Variables existentes para la cámara ---
+# --- Variables para la cámara ---
 @onready var cam_pivot: Marker3D = %CamPivot
 @onready var cam_pitch: Marker3D = %CamPitch
 @onready var camera_3d: Camera3D = %Camera3D
+@onready var sub_viewport: SubViewport = $SubViewport
 
-# --- Variables AÑADIDAS desde tu script de prueba ---
+# --- Variables para el control de un modelo ---
 # Referencia al nodo que contendrá los modelos 3D.
-@onready var models_container: Node3D = $SubViewportContainer/SubViewport/World/Models
-
+@onready var models_container: Node3D = %Models
 var selected_model: Area3D = null 
 var is_dragging: bool = false
 var drag_offset: Vector3 = Vector3.ZERO
 
+#func _ready() -> void:
+	#var area = $SubViewport/World/Area3D
+	#area.input_event.connect(handle_input)
+#
+#func handle_input(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
+	#printerr(camera, event, event_position)
+	#pass
+
 # --- Función MODIFICADA _input() para manejar CÁMARA y ARRASTRE ---
 func _input(event: InputEvent) -> void:
+	for mouse_event in [InputEventMouseButton, InputEventMouseMotion, InputEventScreenDrag, InputEventScreenTouch]:
+		if is_instance_of(event, mouse_event):
+			# If the event is a mouse/touch event, then we can ignore it here, because it will be
+			# handled via Physics Picking.
+			return
+	sub_viewport.push_input(event)
 	# Primero, gestionamos la lógica de arrastrar el modelo.
 	if is_dragging and is_instance_valid(selected_model) and event is InputEventMouseMotion:
 		var ray_origin = camera_3d.project_ray_origin(event.position)
 		var ray_dir = camera_3d.project_ray_normal(event.position)
-		
 		# Proyectamos sobre un plano horizontal a la altura del modelo.
 		var plane = Plane(Vector3.UP, selected_model.global_position.y)
 		var intersection = plane.intersects_ray(ray_origin, ray_dir)
-		
 		if intersection:
 			selected_model.global_position = intersection + drag_offset
 		return # Importante: Si estamos arrastrando, no movemos la cámara.
@@ -40,17 +52,22 @@ func _input(event: InputEvent) -> void:
 			cam_pivot.quaternion *= Quaternion(Vector3.UP, event.delta.x * 0.01)
 			cam_pitch.quaternion *= Quaternion(Vector3.RIGHT, event.delta.y * 0.005)
 			cam_pitch.rotation_degrees.x = clampf(cam_pitch.rotation_degrees.x, -85, 15)
-
+	
 
 # --- Función AÑADIDA para deseleccionar el modelo ---
 func _unhandled_input(event: InputEvent):
+	for mouse_event in [InputEventMouseButton, InputEventMouseMotion, InputEventScreenDrag, InputEventScreenTouch]:
+		if is_instance_of(event, mouse_event):
+			# If the event is a mouse/touch event, then we can ignore it here, because it will be
+			# handled via Physics Picking.
+			return
+	sub_viewport.push_unhandled_input(event)
 	# Si hacemos clic con el botón izquierdo y no estamos empezando a arrastrar un modelo...
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
 		await get_tree().process_frame # Esperamos un frame para que is_dragging se actualice.
 		if not is_dragging: 
 			selected_model = null
 			print("Modelo deseleccionado.")
-
 
 # =====================================================================
 # --- FUNCIONES AÑADIDAS PARA LA CREACIÓN Y MANIPULACIÓN DE MODELOS ---
@@ -109,7 +126,6 @@ func _add_collision_shape_to_area(area: Area3D, model_node: Node3D):
 	collision_shape.shape = box_shape
 	collision_shape.position = combined_aabb.position + combined_aabb.size / 2.0
 	area.add_child(collision_shape)
-
 
 # 3. Función que se ejecuta cuando se hace clic SOBRE un modelo.
 func _on_model_input_event(event: InputEvent, _viewport: Viewport, _shape_idx: int, clicked_model: Area3D):

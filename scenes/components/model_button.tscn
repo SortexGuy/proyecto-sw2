@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bgmrvrsfqhqtu"]
 
-[ext_resource type="Script" uid="uid://cny4mlamr068v" path="res://scenes/container/model_button.gd" id="1_era8t"]
+[ext_resource type="Script" uid="uid://cny4mlamr068v" path="res://scenes/components/model_button.gd" id="1_era8t"]
 [ext_resource type="Texture2D" uid="uid://c4xtqaw3xd2na" path="res://assets/images/silla.png" id="2_0hery"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_01n6w"]
@@ -36,8 +36,9 @@ size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_01n6w")
 script = ExtResource("1_era8t")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
+theme_override_constants/separation = 24
 
 [node name="ClickButton" type="Button" parent="VBoxContainer"]
 clip_contents = true
@@ -51,6 +52,6 @@ expand_icon = true
 
 [node name="NameLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
-horizontal_alignment = 1
+theme_override_font_sizes/font_size = 42
+text = "hola"
 vertical_alignment = 1

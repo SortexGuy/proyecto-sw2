@@ -15,7 +15,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button" type="Button" parent="Control"]
+[node name="SidepanelButton" type="Button" parent="Control"]
+unique_name_in_owner = true
 clip_contents = true
 custom_minimum_size = Vector2(156, 156)
 layout_mode = 1
@@ -45,7 +46,8 @@ grow_horizontal = 2
 grow_vertical = 2
 rotation = -6.28319
 
-[node name="Button2" type="Button" parent="Control/CenterContainer"]
+[node name="AddModelButton" type="Button" parent="Control/CenterContainer"]
+unique_name_in_owner = true
 clip_contents = true
 custom_minimum_size = Vector2(222, 222)
 layout_mode = 2
@@ -54,5 +56,5 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
-[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Control/CenterContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Control/SidepanelButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control/CenterContainer/AddModelButton" to="." method="_on_button_2_pressed"]

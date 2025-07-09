@@ -117,7 +117,8 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "     Mesas pequeñas (10)"
 
-[node name="Button" type="Button" parent="PanelPrincipal2/SideVista2MODELOS/VBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer/Mesas1"]
+[node name="Mesa1Button" type="Button" parent="PanelPrincipal2/SideVista2MODELOS/VBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer/Mesas1"]
+unique_name_in_owner = true
 clip_contents = true
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 1
@@ -142,7 +143,8 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "     Mesas medianas (12)"
 
-[node name="Button" type="Button" parent="PanelPrincipal2/SideVista2MODELOS/VBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer/Mesas2"]
+[node name="Mesa2Button" type="Button" parent="PanelPrincipal2/SideVista2MODELOS/VBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer/Mesas2"]
+unique_name_in_owner = true
 clip_contents = true
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 1
@@ -165,7 +167,8 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "     Mesas grandes (6)"
 
-[node name="Button" type="Button" parent="PanelPrincipal2/SideVista2MODELOS/VBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer/Mesas3"]
+[node name="Mesa3Button" type="Button" parent="PanelPrincipal2/SideVista2MODELOS/VBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer/Mesas3"]
+unique_name_in_owner = true
 clip_contents = true
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 1

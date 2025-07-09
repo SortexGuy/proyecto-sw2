@@ -9,9 +9,9 @@ var modelo_en_descarga_id = null
 
 @onready var http := $HTTPRequest
 
-@onready var boton_mesa_1 := $PanelPrincipal2/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Mesas1/Button
-@onready var boton_mesa_2 := $PanelPrincipal2/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Mesas2/Button
-@onready var boton_mesa_3 := $PanelPrincipal2/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Mesas3/Button
+@onready var boton_mesa_1 := %Mesa1Button
+@onready var boton_mesa_2 := %Mesa2Button
+@onready var boton_mesa_3 := %Mesa3Button
 @onready var back_button: Button = %BackButton
 
 func _ready():

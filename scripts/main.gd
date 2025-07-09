@@ -31,41 +31,29 @@ func _create_model_button(file_name: String):
 
 
 func _on_model_button_pressed(file_name: String):
-	
 	var new_model_root = Area3D.new()
 	new_model_root.name = file_name.get_basename()
-
 	new_model_root.input_event.connect(_on_model_input_event.bind(new_model_root))
-
 	
 	var model_path = MODEL_FOLDER + file_name
 	var glb_data = load(model_path)
 	if glb_data:
 		var model_instance = glb_data.instantiate()
 		new_model_root.add_child(model_instance)
-		
 		_add_collision_shape_to_area(new_model_root, model_instance)
-		
 		models_container.add_child(new_model_root)
 		
 		new_model_root.global_position = Vector3.ZERO
 	else:
 		print("Error: No se pudo cargar el modelo ", model_path)
 
-
-
 func _add_collision_shape_to_area(area: Area3D, model_node: Node3D):
-	
 	var combined_aabb = AABB()
 	var first_mesh = true
-
-	
 	var mesh_nodes = model_node.find_children("*", "MeshInstance3D", true)
-
 	if mesh_nodes.is_empty():
 		push_warning("El modelo '" + model_node.name + "' no contiene nodos MeshInstance3D. No se puede generar colisión.")
 		return
-
 	for mesh_node in mesh_nodes:
 		var mesh_aabb = mesh_node.get_aabb()
 		var global_mesh_aabb = mesh_node.global_transform * mesh_aabb
@@ -75,19 +63,13 @@ func _add_collision_shape_to_area(area: Area3D, model_node: Node3D):
 			first_mesh = false
 		else:
 			combined_aabb = combined_aabb.merge(global_mesh_aabb)
-
 	var local_aabb = area.global_transform.inverse() * combined_aabb
-
 	var collision_shape = CollisionShape3D.new()
 	var box_shape = BoxShape3D.new()
-
 	box_shape.size = local_aabb.size
 	collision_shape.shape = box_shape
 	collision_shape.position = local_aabb.get_center()
-
 	area.add_child(collision_shape)
-
-
 
 func _on_model_input_event(camera: Camera3D, event: InputEvent, position: Vector3, normal: Vector3, shape_idx: int, clicked_model: Area3D):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
@@ -115,18 +97,14 @@ func _input(event: InputEvent):
 		if camera:
 			var ray_origin = camera.project_ray_origin(event.position)
 			var ray_dir = camera.project_ray_normal(event.position)
-			
-			
 			var plane = Plane(Vector3.UP, selected_model.global_position.y)
 			var intersection = plane.intersects_ray(ray_origin, ray_dir)
-			
 			if intersection:
 				selected_model.global_position = intersection + drag_offset
 
-# CAMBIO 6: Deseleccionar si hacemos clic en el "vacío".
+# Deseleccionar si hacemos clic en el "vacío".
 func _unhandled_input(event: InputEvent):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
-		
 		await get_tree().process_frame
 		if is_dragging == false: 
 			selected_model = null

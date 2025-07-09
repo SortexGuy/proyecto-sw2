@@ -10,7 +10,7 @@ extends Node
 @onready var side_import_layer: CanvasLayer = %Side_ImportLayer
 @onready var side_save_layer: CanvasLayer = %Side_SaveLayer
 
-@onready var world_layer: CanvasLayer = get_node("../World/WorldLayer")
+@onready var world_layer: SubViewportContainer = get_node("../World/WorldLayer")
 
 
 #Inicializar botones

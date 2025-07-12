@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://bgmrvrsfqhqtu"]
+
+[ext_resource type="Script" uid="uid://cny4mlamr068v" path="res://scenes/components/model_button.gd" id="1_era8t"]
+[ext_resource type="Texture2D" uid="uid://c4xtqaw3xd2na" path="res://assets/images/silla.png" id="2_0hery"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_01n6w"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0.0901961, 0.0392157, 0.0470588, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6u1mn"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.168627, 0.0745098, 0.109804, 1)
+border_width_bottom = 10
+border_color = Color(0.0726605, 0.0218093, 0.0389979, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="PanelContainer" type="PanelContainer"]
+offset_left = 39.0
+offset_top = 29.0
+offset_right = 273.0
+offset_bottom = 189.0
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_01n6w")
+script = ExtResource("1_era8t")
+
+[node name="VBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="ClickButton" type="Button" parent="VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_6u1mn")
+icon = ExtResource("2_0hery")
+expand_icon = true
+
+[node name="NameLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "hola"
+vertical_alignment = 1

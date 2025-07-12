@@ -1,6 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://1o34vldnsbvu"]
+[gd_scene load_steps=6 format=3 uid="uid://1o34vldnsbvu"]
 
-[ext_resource type="Script" uid="uid://c3ms7iddce43p" path="res://scripts/world_layer.gd" id="1_7ft7k"]
+[ext_resource type="Script" uid="uid://cnqrljx82lve2" path="res://scripts/world_layer.gd" id="1_7ft7k"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7ft7k"]
+size = Vector3(8, 5, 8)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_v3vba"]
 ground_bottom_color = Color(0.0797146, 0.0333714, 0.075063, 1)
@@ -15,37 +18,59 @@ background_mode = 2
 sky = SubResource("Sky_7ft7k")
 tonemap_mode = 2
 
-[node name="WorldLayer" type="CanvasLayer"]
-script = ExtResource("1_7ft7k")
-
-[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+[node name="WorldSubviewportContainer" type="SubViewportContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+stretch = true
+script = ExtResource("1_7ft7k")
 
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+[node name="SubViewport" type="SubViewport" parent="."]
 handle_input_locally = false
+anisotropic_filtering_level = 1
+physics_object_picking = true
+physics_object_picking_sort = true
+physics_object_picking_first_only = true
 size = Vector2i(1080, 1920)
 render_target_update_mode = 4
 
-[node name="World" type="Node3D" parent="SubViewportContainer/SubViewport"]
+[node name="World" type="Node3D" parent="SubViewport"]
 
-[node name="CSGBox3D" type="CSGBox3D" parent="SubViewportContainer/SubViewport/World"]
+[node name="Models" type="Node3D" parent="SubViewport/World"]
+unique_name_in_owner = true
+
+[node name="Area3D" type="Area3D" parent="SubViewport/World"]
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/World/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_7ft7k")
+disabled = true
+
+[node name="Room" type="CSGBox3D" parent="SubViewport/World"]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 use_collision = true
 flip_faces = true
 size = Vector3(6, 4, 6)
 
-[node name="Marker3D" type="Marker3D" parent="SubViewportContainer/SubViewport/World"]
+[node name="CamPivot" type="Marker3D" parent="SubViewport/World"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
-[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/World/Marker3D"]
-transform = Transform3D(0.707107, -0.353553, 0.612372, 0, 0.866025, 0.5, -0.707107, -0.353553, 0.612372, 8, 8, 8)
+[node name="CamPitch" type="Marker3D" parent="SubViewport/World/CamPivot"]
+unique_name_in_owner = true
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport/World"]
+[node name="Camera3D" type="Camera3D" parent="SubViewport/World/CamPivot/CamPitch"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+current = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewport/World"]
 environment = SubResource("Environment_s5lql")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport/World"]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport/World"]
+transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 shadow_enabled = true

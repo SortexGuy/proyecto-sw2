@@ -1,0 +1,67 @@
+[gd_scene load_steps=3 format=3 uid="uid://fmp4keeqd6u8"]
+
+[ext_resource type="Script" uid="uid://u6q81ynb4bed" path="res://scripts/components/main_window_layer.gd" id="1_j1d1y"]
+[ext_resource type="Theme" uid="uid://d2ab3x6jia6ha" path="res://assets/resources/main_theme.theme" id="2_j1d1y"]
+
+[node name="MainWindowLayer" type="CanvasLayer"]
+script = ExtResource("1_j1d1y")
+
+[node name="SubContainer" type="VBoxContainer" parent="."]
+anchors_preset = -1
+anchor_left = 0.074
+anchor_top = 0.377
+anchor_right = 0.926
+anchor_bottom = 0.958
+offset_left = 0.0800018
+offset_top = 0.159973
+offset_right = -0.0800781
+offset_bottom = 0.639893
+size_flags_vertical = 3
+theme = ExtResource("2_j1d1y")
+theme_override_constants/separation = 24
+
+[node name="HSeparator2" type="HSeparator" parent="SubContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="MainButtonsContainer" type="VBoxContainer" parent="SubContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_constants/separation = 32
+
+[node name="CreateProjectButton" type="Button" parent="SubContainer/MainButtonsContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 120)
+layout_mode = 2
+text = " Crear proyecto "
+icon_alignment = 1
+
+[node name="LoadProjectButton" type="Button" parent="SubContainer/MainButtonsContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 120)
+layout_mode = 2
+text = "Cargar Proyecto"
+icon_alignment = 1
+
+[node name="HelpButton" type="Button" parent="SubContainer/MainButtonsContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 120)
+layout_mode = 2
+text = "Ayuda"
+icon_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SubContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+
+[node name="CloseButton" type="Button" parent="SubContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 120)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Cerrar"
+icon_alignment = 1

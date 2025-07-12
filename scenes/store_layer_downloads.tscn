@@ -1,0 +1,236 @@
+[gd_scene load_steps=8 format=3 uid="uid://b8ia8h81yorst"]
+
+[ext_resource type="Script" uid="uid://dm4xvj7k4nbnw" path="res://scripts/store_layer_downloads.gd" id="1_2ym8l"]
+[ext_resource type="Texture2D" uid="uid://c4xtqaw3xd2na" path="res://assets/images/silla.png" id="1_yffw1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qmmev"]
+bg_color = Color(0.172549, 0.0941176, 0.164706, 0.956863)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gseyr"]
+bg_color = Color(1, 1, 1, 1)
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_detail = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3sq6u"]
+bg_color = Color(1, 1, 1, 1)
+border_width_top = 5
+corner_detail = 5
+
+[sub_resource type="Theme" id="Theme_sdohh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7m3cb"]
+bg_color = Color(0.117647, 0.0705882, 0.0666667, 1)
+border_width_bottom = 10
+border_color = Color(0.0901961, 0.0392157, 0.0470588, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+shadow_color = Color(0, 0, 0, 0.682353)
+
+[node name="StoreLayer_Downloads" type="CanvasLayer"]
+script = ExtResource("1_2ym8l")
+
+[node name="PanelPrincipal3" type="PanelContainer" parent="."]
+anchors_preset = -1
+anchor_right = 0.556
+anchor_bottom = 1.0
+offset_right = 479.52
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qmmev")
+
+[node name="SideVista2MODELOS" type="MarginContainer" parent="PanelPrincipal3"]
+layout_mode = 2
+theme_override_constants/margin_left = 70
+theme_override_constants/margin_top = 70
+theme_override_constants/margin_right = 70
+theme_override_constants/margin_bottom = 70
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelPrincipal3/SideVista2MODELOS"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelPrincipal3/SideVista2MODELOS/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.960784, 0.878431, 0.788235, 1)
+theme_override_font_sizes/font_size = 80
+text = "Mesas pequeñas"
+
+[node name="HSeparator" type="HSeparator" parent="PanelPrincipal3/SideVista2MODELOS/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_constants/separation = 20
+theme_override_styles/separator = SubResource("StyleBoxFlat_gseyr")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelPrincipal3/SideVista2MODELOS/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 70
+theme_override_constants/margin_top = 70
+theme_override_constants/margin_right = 70
+theme_override_constants/margin_bottom = 230
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelPrincipal3/SideVista2MODELOS/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="PanelPrincipal3/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer"]
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 40
+
+[node name="HBoxContainer" type="PanelContainer" parent="PanelPrincipal3/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(800, 250)
+layout_direction = 3
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelPrincipal3/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_yffw1")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="PackMesas" type="Label" parent="PanelPrincipal3/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 60
+text = "Mesa"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="PanelContainer" parent="PanelPrincipal3/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(800, 250)
+layout_direction = 3
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelPrincipal3/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("1_yffw1")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="PackMesas" type="Label" parent="PanelPrincipal3/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 60
+text = "Mesa"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HBoxContainer3" type="PanelContainer" parent="PanelPrincipal3/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(800, 250)
+layout_direction = 3
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelPrincipal3/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("1_yffw1")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="PackMesas" type="Label" parent="PanelPrincipal3/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 60
+text = "Mesa"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HBoxContainer4" type="PanelContainer" parent="PanelPrincipal3/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(800, 250)
+layout_direction = 3
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelPrincipal3/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/HBoxContainer4"]
+layout_mode = 2
+texture = ExtResource("1_yffw1")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="PackMesas" type="Label" parent="PanelPrincipal3/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 60
+text = "Mesa"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HBoxContainer5" type="PanelContainer" parent="PanelPrincipal3/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(800, 250)
+layout_direction = 3
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelPrincipal3/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/HBoxContainer5"]
+layout_mode = 2
+texture = ExtResource("1_yffw1")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="PackMesas" type="Label" parent="PanelPrincipal3/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/HBoxContainer5"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 60
+text = "Mesa"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HBoxContainer6" type="PanelContainer" parent="PanelPrincipal3/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(800, 250)
+layout_direction = 3
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelPrincipal3/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/HBoxContainer6"]
+layout_mode = 2
+texture = ExtResource("1_yffw1")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="PackMesas" type="Label" parent="PanelPrincipal3/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/HBoxContainer6"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 60
+text = "Mesa"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="PanelPrincipal3/SideVista2MODELOS"]
+layout_mode = 2
+alignment = 2
+
+[node name="HSeparator8" type="HSeparator" parent="PanelPrincipal3/SideVista2MODELOS/VBoxContainer2"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.1
+theme_override_constants/separation = -5
+theme_override_styles/separator = SubResource("StyleBoxFlat_3sq6u")
+
+[node name="BackButton" type="Button" parent="PanelPrincipal3/SideVista2MODELOS/VBoxContainer2"]
+clip_contents = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme = SubResource("Theme_sdohh")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_7m3cb")
+text = " Volver "
+vertical_icon_alignment = 2
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[connection signal="pressed" from="PanelPrincipal3/SideVista2MODELOS/VBoxContainer2/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]

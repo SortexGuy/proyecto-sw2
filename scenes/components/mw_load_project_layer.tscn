@@ -1,0 +1,93 @@
+[gd_scene load_steps=9 format=3 uid="uid://c8gpg22jerfor"]
+
+[ext_resource type="Script" uid="uid://rdutuk6ppo48" path="res://scripts/components/mw_load_project_layer.gd" id="1_s0ltm"]
+[ext_resource type="Texture2D" uid="uid://c6cgry7lwapkj" path="res://assets/images/volver.png" id="2_s0ltm"]
+[ext_resource type="Theme" uid="uid://d2ab3x6jia6ha" path="res://assets/resources/main_theme.theme" id="3_xdo37"]
+[ext_resource type="PackedScene" uid="uid://lp6jx05upls5" path="res://scenes/components/sample_project_item.tscn" id="4_xdo37"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c1pb6"]
+bg_color = Color(0.137255, 0.0666667, 0.0941176, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 40
+
+[sub_resource type="Theme" id="Theme_gubc5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s0ltm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yi865"]
+
+[node name="MW_LoadProjectLayer" type="CanvasLayer"]
+script = ExtResource("1_s0ltm")
+project_item_sample = ExtResource("4_xdo37")
+
+[node name="SubContainer" type="VBoxContainer" parent="."]
+anchors_preset = -1
+anchor_left = 0.074
+anchor_top = 0.377
+anchor_right = 0.926
+anchor_bottom = 0.958
+offset_left = 0.0800018
+offset_top = 0.159973
+offset_right = -0.0800781
+offset_bottom = 0.639893
+size_flags_vertical = 3
+theme = ExtResource("3_xdo37")
+theme_override_constants/separation = 24
+
+[node name="HeaderContainer" type="HBoxContainer" parent="SubContainer"]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="SubContainer/HeaderContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 124)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 30
+text = " Volver "
+icon = ExtResource("2_s0ltm")
+alignment = 2
+expand_icon = true
+
+[node name="Label" type="Label" parent="SubContainer/HeaderContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.960784, 0.878431, 0.788235, 1)
+theme_override_font_sizes/font_size = 60
+text = "Mis Proyectos           "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="SubContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_c1pb6")
+
+[node name="MarginContainer" type="MarginContainer" parent="SubContainer/PanelContainer"]
+modulate = Color(1, 1, 1, 0.843137)
+layout_mode = 2
+size_flags_vertical = 3
+theme = SubResource("Theme_gubc5")
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 46
+theme_override_constants/margin_bottom = 50
+
+[node name="ScrollContainer" type="ScrollContainer" parent="SubContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_s0ltm")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yi865")
+vertical_scroll_mode = 4
+
+[node name="ProjectsContainer" type="VBoxContainer" parent="SubContainer/PanelContainer/MarginContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="SampleProjectItem" parent="SubContainer/PanelContainer/MarginContainer/ScrollContainer/ProjectsContainer" instance=ExtResource("4_xdo37")]
+layout_mode = 2

@@ -1,7 +1,8 @@
+class_name SidebarLayer
 extends CanvasLayer
 
+@onready var exit_button: Button = %ExitButton
 @onready var world = get_parent().get_node("../World/WorldLayer")
-@onready var atras = get_parent().get_node("MainWindowLayer")
 @onready var store = get_parent().get_node("Side_StoreLayer")
 @onready var escalas = get_parent().get_node("Side_DimensionsLayer")
 @onready var importar = get_parent().get_node("Side_ImportLayer")
@@ -23,9 +24,3 @@ func _on_importar_modelos_pressed():
 
 func _on_guardar_p_pressed():
 	guardar.visible = true
-
-#Para salir del proyecto y pasar al menú principal
-func _on_boton_salir_pressed():
-	atras.visible = true
-	self.visible = false
-	

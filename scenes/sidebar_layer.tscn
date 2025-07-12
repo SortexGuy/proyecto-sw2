@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://yctp56figf5i"]
 
-[ext_resource type="Texture2D" uid="uid://bl4x033luapqh" path="res://assets/resources/menu2.png" id="1_8dgfv"]
-[ext_resource type="Script" uid="uid://dcgnixhoiuc6n" path="res://scripts/sidebar_layer.gd" id="1_a6bjl"]
-[ext_resource type="Texture2D" uid="uid://dvy5lqaeimcal" path="res://assets/resources/salir.png" id="2_a6bjl"]
+[ext_resource type="Texture2D" uid="uid://bl4x033luapqh" path="res://assets/images/menu2.png" id="1_8dgfv"]
+[ext_resource type="Script" uid="uid://q0yhx30115jw" path="res://scripts/sidebar_layer.gd" id="1_a6bjl"]
+[ext_resource type="Texture2D" uid="uid://dvy5lqaeimcal" path="res://assets/images/salir.png" id="2_a6bjl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pw63i"]
 bg_color = Color(0.172549, 0.0941176, 0.164706, 0.956863)
@@ -110,7 +110,8 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_pw63i")
 layout_mode = 2
 size_flags_stretch_ratio = 0.0
 
-[node name="BotonSalir" type="Button" parent="PanelPrincipal/SideVista1/VBoxContainer/Control"]
+[node name="ExitButton" type="Button" parent="PanelPrincipal/SideVista1/VBoxContainer/Control"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(196, 0)
 layout_direction = 1
 layout_mode = 2
@@ -141,4 +142,4 @@ vertical_icon_alignment = 2
 [connection signal="pressed" from="PanelPrincipal/SideVista1/VBoxContainer/Modificar Escalas" to="." method="_on_modificar_escalas_pressed"]
 [connection signal="pressed" from="PanelPrincipal/SideVista1/VBoxContainer/Importar Modelos" to="." method="_on_importar_modelos_pressed"]
 [connection signal="pressed" from="PanelPrincipal/SideVista1/VBoxContainer/GuardarP" to="." method="_on_guardar_p_pressed"]
-[connection signal="pressed" from="PanelPrincipal/SideVista1/VBoxContainer/Control/BotonSalir" to="." method="_on_boton_salir_pressed"]
+[connection signal="pressed" from="PanelPrincipal/SideVista1/VBoxContainer/Control/ExitButton" to="." method="_on_boton_salir_pressed"]

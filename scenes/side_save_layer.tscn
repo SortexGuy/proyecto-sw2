@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://8xqixf1ah4kx"]
 
-[ext_resource type="Script" uid="uid://buf71fmjeui2x" path="res://scripts/side_save_layer.gd" id="1_62ky5"]
-[ext_resource type="Texture2D" uid="uid://p04v4g1fppy2" path="res://assets/resources/check.png" id="1_fm7kw"]
+[ext_resource type="Script" uid="uid://cyo3anlmbuxn" path="res://scripts/side_save_layer.gd" id="1_62ky5"]
+[ext_resource type="Texture2D" uid="uid://p04v4g1fppy2" path="res://assets/images/check.png" id="1_fm7kw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bcnxi"]
 content_margin_left = 20.0

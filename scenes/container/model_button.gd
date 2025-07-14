@@ -10,8 +10,8 @@ var model_name: String
 # Referencias a los nodos hijos para acceder a ellos fácilmente.
 # Asegúrate de que los nombres coincidan con los de tu escena.
 # Si no usas un Label, puedes borrar o comentar la línea correspondiente.
-@onready var click_button: Button = $VBoxContainer/ClickButton
-@onready var name_label: Label = $VBoxContainer/NameLabel
+@onready var click_button: Button = %ClickButton
+@onready var name_label: Label = %NameLabel
 
 func _ready() -> void:
 	# Es fundamental conectar la señal interna del botón a una función de este script.

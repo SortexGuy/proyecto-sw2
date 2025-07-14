@@ -24,6 +24,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_mode = 0
 stretch = true
 script = ExtResource("1_7ft7k")
 
@@ -42,7 +43,6 @@ render_target_update_mode = 4
 unique_name_in_owner = true
 
 [node name="Area3D" type="Area3D" parent="SubViewport/World"]
-visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/World/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
@@ -52,7 +52,7 @@ disabled = true
 [node name="Room" type="CSGBox3D" parent="SubViewport/World"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-use_collision = true
+visible = false
 flip_faces = true
 size = Vector3(6, 4, 6)
 

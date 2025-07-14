@@ -19,10 +19,10 @@ func _ready() -> void:
 	click_button.pressed.connect(_on_internal_button_pressed)
 
 # Esta función es pública para que el script principal pueda configurar cada botón al crearlo.
-func setup(url: String, name: String) -> void:
+func setup(url: String, m_name: String) -> void:
 	self.model_url = url
-	self.model_name = name
-	
+	self.model_name = m_name
+
 	# Actualiza la UI del botón con el nombre del modelo.
 	name_label.text = model_name
 	click_button.text = "Seleccionar" # O puedes poner el nombre aquí también.

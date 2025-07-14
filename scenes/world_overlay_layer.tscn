@@ -14,6 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="SidepanelButton" type="Button" parent="Control"]
 unique_name_in_owner = true
@@ -45,6 +46,7 @@ offset_bottom = -24.0
 grow_horizontal = 2
 grow_vertical = 2
 rotation = -6.28319
+mouse_filter = 2
 
 [node name="AddModelButton" type="Button" parent="Control/CenterContainer"]
 unique_name_in_owner = true

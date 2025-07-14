@@ -60,6 +60,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_bcnxi")
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer2"]

@@ -6,7 +6,7 @@ signal project_selected_for_delete(path)
 
 const SAVE_FOLDER = "res://saved_projects/" 
 
-@export var project_item_sample: PackedScene
+@export_file("*.tscn", "*.scn") var prj_item_sample: String = "res://scenes/components/sample_project_item.tscn"
 @onready var back_button: Button = %BackButton
 @onready var projects_container: VBoxContainer = %ProjectsContainer
 
@@ -22,8 +22,8 @@ func load_project_list() -> void:
 	for file_name in dir.get_files():
 		if not file_name.ends_with(".prj"):
 			continue
-		
-		var sample_node = project_item_sample.instantiate()
+		var prj_item_sample_node = load(prj_item_sample)
+		var sample_node = prj_item_sample_node.instantiate()
 		
 		# 1. Añadimos el nodo al contenedor PRIMERO.
 		projects_container.add_child(sample_node)

@@ -21,7 +21,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-ProjectLoader="*res://scripts/project_loader.gd"
+ProjectLoader="*res://scripts/autoloads/project_loader.gd"
 
 [display]
 

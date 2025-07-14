@@ -6,6 +6,7 @@
 *.glb
 models/
 downloads/
+server.pipe
 
 # Build results
 [Dd]ebug/

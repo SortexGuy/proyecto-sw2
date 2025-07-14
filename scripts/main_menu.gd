@@ -2,8 +2,8 @@ class_name MainMenu
 extends Node
 
 @export_file("*.tscn", "*.scn") var main_scene: String = "res://scenes/main_scene.tscn"
-@onready var main_window_layer: MainWindowLayer = %MainWindowLayer
-@onready var mw_load_project_layer: LoadProjectLayer = %MW_LoadProjectLayer
+@onready var main_window_layer := %MainWindowLayer
+@onready var mw_load_project_layer := %MW_LoadProjectLayer
 
 func _ready() -> void:
 	main_window_layer.create_project_button.pressed.connect(on_mwl_create_project_button_pressed)

@@ -20,7 +20,6 @@ corner_radius_bottom_left = 40
 
 [node name="MW_LoadProjectLayer" type="CanvasLayer"]
 script = ExtResource("1_s0ltm")
-project_item_sample = ExtResource("4_xdo37")
 
 [node name="SubContainer" type="VBoxContainer" parent="."]
 anchors_preset = -1

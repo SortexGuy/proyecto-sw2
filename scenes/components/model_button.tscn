@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bgmrvrsfqhqtu"]
 
-[ext_resource type="Script" uid="uid://cny4mlamr068v" path="res://scenes/components/model_button.gd" id="1_era8t"]
+[ext_resource type="Script" uid="uid://cny4mlamr068v" path="res://scenes/container/model_button.gd" id="1_era8t"]
 [ext_resource type="Texture2D" uid="uid://c4xtqaw3xd2na" path="res://assets/images/silla.png" id="2_0hery"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_01n6w"]
@@ -27,7 +27,7 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[node name="PanelContainer" type="PanelContainer"]
+[node name="ModelButton" type="PanelContainer"]
 offset_left = 39.0
 offset_top = 29.0
 offset_right = 273.0
@@ -41,6 +41,7 @@ layout_mode = 2
 theme_override_constants/separation = 24
 
 [node name="ClickButton" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
 clip_contents = true
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
@@ -51,6 +52,7 @@ icon = ExtResource("2_0hery")
 expand_icon = true
 
 [node name="NameLabel" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 42
 text = "hola"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dkskpavqya0o2"]
+[gd_scene load_steps=11 format=3 uid="uid://dkskpavqya0o2"]
 
 [ext_resource type="PackedScene" uid="uid://1o34vldnsbvu" path="res://scenes/world_layer.tscn" id="1_pw63i"]
 [ext_resource type="PackedScene" uid="uid://cklq6bjwo3103" path="res://scenes/world_overlay_layer.tscn" id="1_w2twt"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bxw6bou2o7loj" path="res://scenes/side_dimensions_layer.tscn" id="8_si52b"]
 [ext_resource type="PackedScene" uid="uid://48r4mu6p1wfm" path="res://scenes/side_import_layer.tscn" id="9_01n6w"]
 [ext_resource type="PackedScene" uid="uid://8xqixf1ah4kx" path="res://scenes/side_save_layer.tscn" id="10_6u1mn"]
+[ext_resource type="PackedScene" uid="uid://dbqil7tnokvyd" path="res://scenes/store_layer_downloads.tscn" id="10_6wevv"]
 
 [node name="MainScene" type="Node"]
 
@@ -45,5 +46,9 @@ unique_name_in_owner = true
 visible = false
 
 [node name="Side_SaveLayer" parent="Interfaces" instance=ExtResource("10_6u1mn")]
+unique_name_in_owner = true
+visible = false
+
+[node name="StoreLayer_Downloads" parent="Interfaces" instance=ExtResource("10_6wevv")]
 unique_name_in_owner = true
 visible = false

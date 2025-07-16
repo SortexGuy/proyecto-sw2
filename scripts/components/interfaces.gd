@@ -9,6 +9,7 @@ extends Node
 @onready var side_dimensions_layer: CanvasLayer = %Side_DimensionsLayer
 @onready var side_import_layer: CanvasLayer = %Side_ImportLayer
 @onready var side_save_layer: CanvasLayer = %Side_SaveLayer
+@onready var store_layer_downloads: CanvasLayer = %StoreLayer_Downloads
 
 @onready var world_layer: SubViewportContainer = get_node("../World/WorldLayer")
 

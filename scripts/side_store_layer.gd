@@ -1,112 +1,145 @@
 extends CanvasLayer
 
-const API_MODELOS_URL := "http://localhost:3000/models/all"
-const API_GLTF_URL := "http://localhost:3000/models/static/"
-const META_LOCAL_PATH := "user://modelos_locales.json"
-
-var modelos = {}
-var modelo_en_descarga_id = null
-
-@onready var http := $HTTPRequest
-
-@onready var boton_mesa_1 := %Mesa1Button
-@onready var boton_mesa_2 := %Mesa2Button
-@onready var boton_mesa_3 := %Mesa3Button
+@onready var store = get_parent().get_node("StoreLayer_Downloads")
+@onready var http = $HTTPRequest
+@onready var http2 = $HTTPRequest2
 @onready var back_button: Button = %BackButton
 
+var buttons := []
+var text := ""
+var ID := 0
+
+var categories = {}
+var category = null
+var subcategories = {}
+var subcategory = null
+const link_categories := "http://localhost:3000/categories"
+
+var Subcategories: Array = []
+var processing := false
+
+signal text_sent(texto: String, ID: int)
+
 func _ready():
-	back_button.pressed.connect(_on_back_button_pressed)
-	print(" Conectando y solicitando modelos...")
-	http.request_completed.connect(_on_https_request_completed)
-	obtener_modelos_del_backend()
+	var grid := get_node("PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer")
 
-func obtener_modelos_del_backend():
-	print("Solicitando modelos desde el backend:", API_MODELOS_URL)
-	var err = http.request(API_MODELOS_URL)
+	for container in grid.get_children():
+		if container.has_node("Button"):
+			var button := container.get_node("Button")
+			var string := container.name
+
+			button.pressed.connect(func(nombre := string): connect_buttons(nombre))
+			
+	connect("text_sent", Callable(store, "receive_text"))
+	
+	http.request_completed.connect(_on_http_request_completed)
+	http2.request_completed.connect(_on_http_request_2_completed)
+	obtener_categorias()
+
+#Se obtienen las categorías
+func obtener_categorias():
+	print("Categorías: ", link_categories)
+	
+	var err = http.request(link_categories)
 	if err != OK:
-		print(" Error al solicitar modelos:", err)
+		print(" Error al solicitar categorías:", err)
 
-func _on_https_request_completed(_result, response_code, _headers, body):
-	print(" Respuesta HTTP recibida. Código:", response_code, " Modelo en descarga:", modelo_en_descarga_id)
+func _on_http_request_completed(result, response_code, headers, body):
+	print(" Respuesta HTTP recibida. Código:", response_code, " Categoría:", category)
+
 	if response_code == 200 and body.size() > 0:
-		if modelo_en_descarga_id == null:
-			print(" Cargando lista de modelos")
+		if category == null:
+			print(" Cargando categorías")
 			var parsed = JSON.parse_string(body.get_string_from_utf8())
-			if typeof(parsed) == TYPE_ARRAY:
-				for modelo in parsed:
-					modelo.id = int(modelo.id)
-					print(" Modelo recibido:", modelo.name, " ID:", modelo.id)
-					modelos[modelo.id] = modelo
-					_asignar_boton_existente(modelo)
-		else:
-			print(" Descarga de modelo ID:", modelo_en_descarga_id, " completada. Guardando...")
-			guardar_archivo_glb(body)
+			if typeof(parsed) == TYPE_DICTIONARY and parsed.has("response"):
+				var inner = parsed["response"]
+				if typeof(inner) == TYPE_DICTIONARY and inner.has("data"):
+					var lista = inner["data"]
+					for c in lista:
+						c.id = int(c.id)
+						print(" Categoría recibida: ", c.name, " ID:", c.id)
+						categories[c.id] = c
+						
+						revisar_subcategorias(c.id)
+	else:
+		print("Error HTTP:", response_code, " Body size: ", body.size())
+
+#Se revisan las subcategorías con un trigger
+func revisar_subcategorias(id):
+	if processing:
+		Subcategories.append(id)
+	else:
+		trigger_subcategory(id)
+		
+func trigger_subcategory(id):
+	processing = true
+	var link_sub = "http://localhost:3000/categories/%d/subcategories?page=1&pageSize=10" % id
+	var err = http2.request(link_sub)
+	if err != OK:
+		print(" Error al solicitar subcategorías:", err)
+
+func _on_http_request_2_completed(result, response_code, headers, body):
+	print(" Respuesta HTTP recibida. Código:", response_code, " Categoría:", subcategory)
+
+	if response_code == 200 and body.size() > 0:
+		if subcategory == null:
+			print(" Cargando subcategorías")
+			var parsed = JSON.parse_string(body.get_string_from_utf8())
+			if typeof(parsed) == TYPE_DICTIONARY and parsed.has("response"):
+				var inner = parsed["response"]
+				if typeof(inner) == TYPE_DICTIONARY and inner.has("data"):
+					var lista = inner["data"]
+					for s in lista:
+						s.id = int(s.id)
+						print(" Subcategoría recibida: ", s.name, " ID: ", s.id)
+						subcategories[s.id] = s
+						
+		processing = false
+		if Subcategories.size() > 0:
+			var next_id = Subcategories.pop_front()
+			trigger_subcategory(next_id)
 	else:
 		print("Error HTTP:", response_code, " Body size:", body.size())
 
-func _asignar_boton_existente(modelo):
-	match modelo.name:
-		"Mesa":
-			boton_mesa_1.pressed.connect(func(): _on_boton_modelo_presionado(int(modelo.id)))
-		"Mesa_2":
-			boton_mesa_2.pressed.connect(func(): _on_boton_modelo_presionado(int(modelo.id)))
-		"Mesa_3":
-			boton_mesa_3.pressed.connect(func(): _on_boton_modelo_presionado(int(modelo.id)))
+#Se conectan los botones con el nombre de su label
+func connect_buttons(string: String):
+	_on_item_pressed(string)
+
+#Se envía el nombre de la subcategoría y su id
+func _on_item_pressed(string):
+	match string:
+		"Mesas1":
+			text = "Mesas pequeñas"
+		"Mesas2":
+			text = "Mesas medianas"
+		"Mesas3":
+			text = "Mesas grandes"
+		"Sillas":
+			text = "Sillas"
+		"Muebles":
+			text = "Muebles"
+		"Sofas":
+			text = "Sofás"
+		"Pisos":
+			text = "Pack de Pisos"
+		"Paredes":
+			text = "Pack de Paredes"
+		"Cuadros":
+			text = "Cuadros"
+		"Ventanas":
+			text = "Ventanas"
+		"Adornos":
+			text = "Adornos"
 		_:
-			print(" No hay botón predefinido para:", modelo.name)
-
-func _on_boton_modelo_presionado(modelo_id):
-	print(" Botón presionado. Solicitando modelo ID:", modelo_id)
-	modelo_en_descarga_id = int(modelo_id)
-	var ruta = "downloads/modelo_" + str(modelo_en_descarga_id) + ".glb"
+			print("item desconocido")
+		
+	for i in subcategories:
+		if subcategories[i].name == text:
+			ID = subcategories[i].id
 	
-	if FileAccess.file_exists(ruta):
-		print("El modelo ya se encuentra disponible en la aplicación.")
-		modelo_en_descarga_id = null
-		return
-	
-	var url_descarga = API_GLTF_URL + str(modelo_en_descarga_id)  
-	print(" Solicitando:", url_descarga)
-	var err = http.request(url_descarga)
-	if err != OK:
-		print(" Error solicitando .glb del modelo:", modelo_en_descarga_id)
-
-func guardar_archivo_glb(bytes):
-	var ruta = "downloads/modelo_" + str(modelo_en_descarga_id) + ".glb"
-	print("Guardando .glb en: ", ruta)
-	var file = FileAccess.open(ruta, FileAccess.WRITE)
-	file.store_buffer(bytes)
-	file.close()
-	
-	guardar_metadatos_locales(modelo_en_descarga_id, ruta)
-	modelo_en_descarga_id = null
-
-func guardar_metadatos_locales(id, ruta_glb):
-	print(" Guardando metadatos para el modelo ID:", id)
-	var data := {}
-	if FileAccess.file_exists(META_LOCAL_PATH):
-		var f = FileAccess.open(META_LOCAL_PATH, FileAccess.READ)
-		var contenido = f.get_as_text()
-		var parsed = JSON.parse_string(contenido)
-		if typeof(parsed) == TYPE_DICTIONARY:
-			data = parsed
-		else:
-			print("  El archivo de metadatos está vacío o malformado. Se reiniciará.")
-		f.close()
-	
-	var modelo = modelos[id]
-	data[str(id)] = {
-		"name": modelo.name,
-		"url": modelo.url,
-		"categories": modelo.categories,
-		"subcategories": modelo.subcategories,
-		"local_path": ruta_glb
-	}
-	
-	var f_save = FileAccess.open(META_LOCAL_PATH, FileAccess.WRITE)
-	f_save.store_string(JSON.stringify(data, "\t"))
-	f_save.close()
-	print(" Metadatos guardados.")
+	print("Texto enviado: ", text,". ID: ", ID)
+	emit_signal("text_sent", text, ID)
+	store.visible = true
 
 #Botón volver
 func _on_back_button_pressed():

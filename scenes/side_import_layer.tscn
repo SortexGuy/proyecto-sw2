@@ -64,6 +64,7 @@ anchor_right = 0.556
 anchor_bottom = 1.0
 offset_right = 479.52
 grow_vertical = 2
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_pw63i")
 
 [node name="Margen" type="MarginContainer" parent="PanelPrincipal2"]

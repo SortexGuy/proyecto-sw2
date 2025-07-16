@@ -31,74 +31,79 @@ corner_radius_bottom_left = 50
 [node name="Side_StoreLayer" type="CanvasLayer"]
 script = ExtResource("1_0laob")
 
-[node name="PanelPrincipal2" type="PanelContainer" parent="."]
+[node name="PanelPrincipal" type="PanelContainer" parent="."]
 anchors_preset = -1
 anchor_right = 0.556
 anchor_bottom = 1.0
 offset_right = 479.52
 grow_vertical = 2
+mouse_filter = 1
 theme = ExtResource("2_yvnux")
 theme_override_styles/panel = SubResource("StyleBoxFlat_pw63i")
 
-[node name="SideVista2MODELOS" type="MarginContainer" parent="PanelPrincipal2"]
+[node name="SideVista2MODELOS" type="MarginContainer" parent="PanelPrincipal"]
 layout_mode = 2
 theme_override_constants/margin_left = 70
 theme_override_constants/margin_top = 70
 theme_override_constants/margin_right = 70
 theme_override_constants/margin_bottom = 70
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelPrincipal2/SideVista2MODELOS"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelPrincipal/SideVista2MODELOS"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelPrincipal2/SideVista2MODELOS/VBoxContainer"]
+[node name="Label" type="Label" parent="PanelPrincipal/SideVista2MODELOS/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.960784, 0.878431, 0.788235, 1)
 theme_override_font_sizes/font_size = 80
 text = "Tienda"
 
-[node name="HSeparator" type="HSeparator" parent="PanelPrincipal2/SideVista2MODELOS/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="PanelPrincipal/SideVista2MODELOS/VBoxContainer"]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 theme_override_constants/separation = 20
 theme_override_styles/separator = SubResource("StyleBoxFlat_pu3yx")
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelPrincipal2/SideVista2MODELOS/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelPrincipal/SideVista2MODELOS/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 70
 theme_override_constants/margin_top = 70
 theme_override_constants/margin_right = 70
-theme_override_constants/margin_bottom = 70
+theme_override_constants/margin_bottom = 40
 
-[node name="ScrollContainer" type="ScrollContainer" parent="PanelPrincipal2/SideVista2MODELOS/VBoxContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="GridContainer" type="GridContainer" parent="PanelPrincipal2/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/VBoxContainer/ScrollContainer"]
 layout_direction = 1
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 40
 
-[node name="PackMesas" type="Label" parent="PanelPrincipal2/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+[node name="PackMesas" type="Label" parent="PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 1
 theme_override_font_sizes/font_size = 40
 text = "Mesas"
 
-[node name="HSeparator" type="HSeparator" parent="PanelPrincipal2/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+[node name="HSeparator" type="HSeparator" parent="PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer"]
 layout_mode = 2
 theme_override_constants/separation = -5
 theme_override_styles/separator = SubResource("StyleBoxFlat_gubc5")
 
-[node name="Mesas1" type="Label" parent="PanelPrincipal2/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+[node name="Mesas1" type="Label" parent="PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "     Mesas pequeñas (10)"
 
-[node name="Button" type="Button" parent="PanelPrincipal2/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Mesas1"]
+[node name="Button" type="Button" parent="PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer/Mesas1"]
 clip_contents = true
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 1
@@ -118,12 +123,12 @@ text = "+"
 icon_alignment = 1
 expand_icon = true
 
-[node name="Mesas2" type="Label" parent="PanelPrincipal2/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+[node name="Mesas2" type="Label" parent="PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "     Mesas medianas (12)"
 
-[node name="Button" type="Button" parent="PanelPrincipal2/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Mesas2"]
+[node name="Button" type="Button" parent="PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer/Mesas2"]
 clip_contents = true
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 1
@@ -141,12 +146,12 @@ theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_rt2n2")
 text = "+"
 
-[node name="Mesas3" type="Label" parent="PanelPrincipal2/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+[node name="Mesas3" type="Label" parent="PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "     Mesas grandes (6)"
 
-[node name="Button" type="Button" parent="PanelPrincipal2/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Mesas3"]
+[node name="Button" type="Button" parent="PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer/Mesas3"]
 clip_contents = true
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 1
@@ -166,29 +171,29 @@ text = "+"
 icon_alignment = 1
 expand_icon = true
 
-[node name="HSeparator2" type="HSeparator" parent="PanelPrincipal2/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+[node name="HSeparator2" type="HSeparator" parent="PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer"]
 layout_mode = 2
 theme_override_constants/separation = -5
 theme_override_styles/separator = SubResource("StyleBoxFlat_gubc5")
 
-[node name="Asientos" type="Label" parent="PanelPrincipal2/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+[node name="Asientos" type="Label" parent="PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 1
 theme_override_font_sizes/font_size = 40
 text = "Asientos"
 
-[node name="HSeparator3" type="HSeparator" parent="PanelPrincipal2/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+[node name="HSeparator3" type="HSeparator" parent="PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer"]
 layout_mode = 2
 theme_override_constants/separation = -5
 theme_override_styles/separator = SubResource("StyleBoxFlat_gubc5")
 
-[node name="Sillas" type="Label" parent="PanelPrincipal2/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+[node name="Sillas" type="Label" parent="PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "     Sillas (21)"
 
-[node name="Button" type="Button" parent="PanelPrincipal2/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Sillas"]
+[node name="Button" type="Button" parent="PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer/Sillas"]
 clip_contents = true
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 1
@@ -206,12 +211,12 @@ theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_rt2n2")
 text = "+"
 
-[node name="Muebles" type="Label" parent="PanelPrincipal2/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+[node name="Muebles" type="Label" parent="PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "     Muebles (17)"
 
-[node name="Button" type="Button" parent="PanelPrincipal2/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Muebles"]
+[node name="Button" type="Button" parent="PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer/Muebles"]
 clip_contents = true
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 1
@@ -229,12 +234,12 @@ theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_rt2n2")
 text = "+"
 
-[node name="Sofas" type="Label" parent="PanelPrincipal2/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+[node name="Sofas" type="Label" parent="PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "     Sofás (9)"
 
-[node name="Button" type="Button" parent="PanelPrincipal2/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Sofas"]
+[node name="Button" type="Button" parent="PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer/Sofas"]
 clip_contents = true
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 1
@@ -252,29 +257,29 @@ theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_rt2n2")
 text = "+"
 
-[node name="HSeparator4" type="HSeparator" parent="PanelPrincipal2/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+[node name="HSeparator4" type="HSeparator" parent="PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer"]
 layout_mode = 2
 theme_override_constants/separation = -5
 theme_override_styles/separator = SubResource("StyleBoxFlat_gubc5")
 
-[node name="Tapizado" type="Label" parent="PanelPrincipal2/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+[node name="Tapizado" type="Label" parent="PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 1
 theme_override_font_sizes/font_size = 40
 text = "Tapizado"
 
-[node name="HSeparator5" type="HSeparator" parent="PanelPrincipal2/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+[node name="HSeparator5" type="HSeparator" parent="PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer"]
 layout_mode = 2
 theme_override_constants/separation = -5
 theme_override_styles/separator = SubResource("StyleBoxFlat_gubc5")
 
-[node name="Pisos" type="Label" parent="PanelPrincipal2/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+[node name="Pisos" type="Label" parent="PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "     Pack de Pisos (62)"
 
-[node name="Button" type="Button" parent="PanelPrincipal2/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Pisos"]
+[node name="Button" type="Button" parent="PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer/Pisos"]
 clip_contents = true
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 1
@@ -292,12 +297,12 @@ theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_rt2n2")
 text = "+"
 
-[node name="Paredes" type="Label" parent="PanelPrincipal2/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+[node name="Paredes" type="Label" parent="PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "     Pack de Paredes (62)"
 
-[node name="Button" type="Button" parent="PanelPrincipal2/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Paredes"]
+[node name="Button" type="Button" parent="PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer/Paredes"]
 clip_contents = true
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 1
@@ -315,29 +320,29 @@ theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_rt2n2")
 text = "+"
 
-[node name="HSeparator6" type="HSeparator" parent="PanelPrincipal2/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+[node name="HSeparator6" type="HSeparator" parent="PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer"]
 layout_mode = 2
 theme_override_constants/separation = -5
 theme_override_styles/separator = SubResource("StyleBoxFlat_gubc5")
 
-[node name="Accesorios Pared" type="Label" parent="PanelPrincipal2/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+[node name="Accesorios Pared" type="Label" parent="PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 1
 theme_override_font_sizes/font_size = 40
 text = "Accesorios Pared"
 
-[node name="HSeparator7" type="HSeparator" parent="PanelPrincipal2/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+[node name="HSeparator7" type="HSeparator" parent="PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer"]
 layout_mode = 2
 theme_override_constants/separation = -5
 theme_override_styles/separator = SubResource("StyleBoxFlat_gubc5")
 
-[node name="Cuadros" type="Label" parent="PanelPrincipal2/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+[node name="Cuadros" type="Label" parent="PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "     Cuadros (38)"
 
-[node name="Button" type="Button" parent="PanelPrincipal2/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Cuadros"]
+[node name="Button" type="Button" parent="PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer/Cuadros"]
 clip_contents = true
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 1
@@ -355,12 +360,12 @@ theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_rt2n2")
 text = "+"
 
-[node name="Ventanas" type="Label" parent="PanelPrincipal2/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+[node name="Ventanas" type="Label" parent="PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "     Ventanas (14)"
 
-[node name="Button" type="Button" parent="PanelPrincipal2/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Ventanas"]
+[node name="Button" type="Button" parent="PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer/Ventanas"]
 clip_contents = true
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 1
@@ -378,12 +383,12 @@ theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_rt2n2")
 text = "+"
 
-[node name="Adornos" type="Label" parent="PanelPrincipal2/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+[node name="Adornos" type="Label" parent="PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "     Adornos (36)"
 
-[node name="Button" type="Button" parent="PanelPrincipal2/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Adornos"]
+[node name="Button" type="Button" parent="PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer/Adornos"]
 clip_contents = true
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 1
@@ -401,19 +406,16 @@ theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_rt2n2")
 text = "+"
 
-[node name="HSeparator8" type="HSeparator" parent="PanelPrincipal2/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+[node name="HSeparator8" type="HSeparator" parent="PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer"]
 layout_mode = 2
 theme_override_constants/separation = -5
 theme_override_styles/separator = SubResource("StyleBoxFlat_gubc5")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelPrincipal2/SideVista2MODELOS/VBoxContainer"]
-layout_mode = 2
-alignment = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelPrincipal2/SideVista2MODELOS/VBoxContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="BackButton" type="Button" parent="PanelPrincipal2/SideVista2MODELOS/VBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="BackButton" type="Button" parent="PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 124)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -426,4 +428,6 @@ expand_icon = true
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 
-[connection signal="pressed" from="PanelPrincipal2/SideVista2MODELOS/VBoxContainer/VBoxContainer/HBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
+[node name="HTTPRequest2" type="HTTPRequest" parent="."]
+
+[connection signal="pressed" from="PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

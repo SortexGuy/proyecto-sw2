@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cnqrljx82lve2" path="res://scripts/world_layer.gd" id="1_7ft7k"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7ft7k"]
-size = Vector3(8, 5, 8)
+size = Vector3(5, 5, 5)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_v3vba"]
 ground_bottom_color = Color(0.0797146, 0.0333714, 0.075063, 1)
@@ -24,7 +24,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_mode = 0
 stretch = true
+mouse_target = true
 script = ExtResource("1_7ft7k")
 
 [node name="SubViewport" type="SubViewport" parent="."]
@@ -47,12 +49,11 @@ visible = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/World/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 shape = SubResource("BoxShape3D_7ft7k")
-disabled = true
 
 [node name="Room" type="CSGBox3D" parent="SubViewport/World"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-use_collision = true
+visible = false
 flip_faces = true
 size = Vector3(6, 4, 6)
 

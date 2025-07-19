@@ -1,9 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://1o34vldnsbvu"]
+[gd_scene load_steps=5 format=3 uid="uid://1o34vldnsbvu"]
 
 [ext_resource type="Script" uid="uid://cnqrljx82lve2" path="res://scripts/world_layer.gd" id="1_7ft7k"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_7ft7k"]
-size = Vector3(5, 5, 5)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_v3vba"]
 ground_bottom_color = Color(0.0797146, 0.0333714, 0.075063, 1)
@@ -43,17 +40,10 @@ render_target_update_mode = 4
 [node name="Models" type="Node3D" parent="SubViewport/World"]
 unique_name_in_owner = true
 
-[node name="Area3D" type="Area3D" parent="SubViewport/World"]
-visible = false
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/World/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-shape = SubResource("BoxShape3D_7ft7k")
-
 [node name="Room" type="CSGBox3D" parent="SubViewport/World"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-visible = false
+use_collision = true
 flip_faces = true
 size = Vector3(6, 4, 6)
 

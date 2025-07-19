@@ -18,6 +18,7 @@ corner_radius_bottom_left = 40
 
 [node name="WO_ModelsLayer" type="CanvasLayer"]
 script = ExtResource("1_ryqlg")
+models_path = "user://models"
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 anchors_preset = 8
@@ -70,6 +71,7 @@ theme_override_constants/margin_bottom = 40
 
 [node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
+horizontal_scroll_mode = 0
 
 [node name="ButtonsContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/ScrollContainer"]
 unique_name_in_owner = true

@@ -15,7 +15,7 @@ var iD := 0
 
 @onready var container := $PanelPrincipal3/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer
 @onready var button: Button = %Button
-@onready var back_button: Button = %BackButton
+@onready var back_button: Button = %BackButton2
 @onready var note := container.get_node("Note")
 
 func _ready():
@@ -86,7 +86,7 @@ func buttons(modelos):
 			btn.text = model_data.name
 			btn.visible = true
 			btn.pressed.connect(_on_button_model_pressed.bind(model_data.id))
-			
+
 			container.add_child(btn)
 
 func _on_button_model_pressed(modelo_id):
@@ -94,7 +94,7 @@ func _on_button_model_pressed(modelo_id):
 	print(" Botón presionado. Solicitando modelo ID:", modelo_id)
 	modelo_en_descarga_id = int(modelo_id)
 	var ruta = "downloads/modelo_" + str(modelo_en_descarga_id) + ".glb"
-	
+
 	if FileAccess.file_exists(ruta):
 		print("El modelo ya se encuentra disponible en la aplicación")
 		note.text = "El modelo ya se encuentra disponible\nen la aplicación"
@@ -102,7 +102,7 @@ func _on_button_model_pressed(modelo_id):
 		modelo_en_descarga_id = null
 		return
 
-	var url_descarga = API_GLTF_URL + str(modelo_en_descarga_id)  
+	var url_descarga = API_GLTF_URL + str(modelo_en_descarga_id)
 	print(" Solicitando:", url_descarga)
 	var err = http.request(url_descarga)
 	if err != OK:
@@ -119,7 +119,7 @@ func guardar_archivo_glb(bytes):
 		if err != OK:
 			print("Error al crear la carpeta 'downloads': ", err)
 			return
-	
+
 	print("Guardando .glb en: ", ruta)
 
 	var file = FileAccess.open(ruta, FileAccess.WRITE)

@@ -1,30 +1,35 @@
 class_name SampleProjectItem
 extends HBoxContainer
 
+# Las señales que emite este componente no cambian. ¡Perfecto!
 signal preview_pressed(project_path)
 signal delete_pressed(project_path)
 
 # Variables que el script padre (LoadProjectLayer) configurará.
 @onready var project_label: Label = %ProjectLabel
-@onready var preview_button: Button = %PreviewButton
+# Cambiamos la referencia al nuevo botón de carga.
+@onready var load_button: Button = %LoadButton 
 @onready var delete_button: Button = %DeleteButton
 
 # Ruta completa al archivo .prj que este item representa.
 var project_path: String
 
 func _ready():
-	# Conectamos las señales de AMBOS botones a sus respectivas funciones.
-	preview_button.pressed.connect(_on_preview_button_pressed)
+	# Conectamos la señal del nuevo botón de carga.
+	load_button.pressed.connect(_on_load_button_pressed)
 	delete_button.pressed.connect(_on_delete_button_pressed)
 
-func _on_preview_button_pressed():
-	# Cuando se presiona el botón de previsualizar/cargar.
+# Un setter es una buena práctica para configurar el estado de un nodo desde fuera.
+func set_project_path(path: String):
+	project_path = path
+
+# Renombramos la función para que coincida con el nuevo botón.
+func _on_load_button_pressed():
+	# La lógica aquí es idéntica a la anterior.
+	if project_path.is_empty(): return
 	preview_pressed.emit(project_path)
 
 func _on_delete_button_pressed():
-	# Cuando se presiona el botón de borrar.
+	if project_path.is_empty(): return
+	# El nodo ya no se autodestruye. Solo notifica.
 	delete_pressed.emit(project_path)
-	
-	# Opcional pero recomendado: una vez que se emite la señal de borrar,
-	# el item puede eliminarse a sí mismo de la escena.
-	queue_free()

@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://6qqjyxoxx3c6"]
+[gd_scene load_steps=8 format=3 uid="uid://6qqjyxoxx3c6"]
 
 [ext_resource type="Script" uid="uid://brocr5s0o1ulq" path="res://scripts/main_menu.gd" id="1_bqqt6"]
 [ext_resource type="PackedScene" uid="uid://fmp4keeqd6u8" path="res://scenes/components/main_window_layer.tscn" id="1_ekxnf"]
 [ext_resource type="Theme" uid="uid://d2ab3x6jia6ha" path="res://assets/resources/main_theme.theme" id="2_8ln24"]
 [ext_resource type="PackedScene" uid="uid://c8gpg22jerfor" path="res://scenes/components/mw_load_project_layer.tscn" id="2_bqqt6"]
 [ext_resource type="Texture2D" uid="uid://dmk6fr13fy727" path="res://logo.png" id="2_wu84c"]
+[ext_resource type="PackedScene" uid="uid://co54sadcsj77u" path="res://scenes/components/mw_connection_layer.tscn" id="6_rtw2f"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_rtw2f"]
 color = Color(0.8, 0.8, 0.8, 0.705882)
@@ -62,3 +63,6 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 offset = Vector2(1080, 0)
 transform = Transform2D(1, 0, 0, 1, 1080, 0)
+
+[node name="MW_ConnectionLayer" parent="PanelContainer/MarginContainer/MainContainer" instance=ExtResource("6_rtw2f")]
+unique_name_in_owner = true

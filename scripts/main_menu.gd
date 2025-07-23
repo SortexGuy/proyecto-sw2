@@ -4,21 +4,29 @@ extends Node
 @export_file("*.tscn", "*.scn") var main_scene: String = "res://scenes/main_scene.tscn"
 @onready var main_window_layer := %MainWindowLayer
 @onready var mw_load_project_layer := %MW_LoadProjectLayer
+@onready var mw_connection_layer: MWConnectionLayer = %MW_ConnectionLayer
 
 func _ready() -> void:
 	main_window_layer.create_project_button.pressed.connect(on_mwl_create_project_button_pressed)
 	main_window_layer.load_project_button.pressed.connect(on_mwl_load_project_button_pressed)
+	main_window_layer.help_button.pressed.connect(on_mwl_help_button_pressed)
 	main_window_layer.close_button.pressed.connect(on_mwl_close_button_pressed)
 	mw_load_project_layer.back_button.pressed.connect(on_lpl_back_button_pressed)
 	
 	# Conectamos las nuevas señales del menú de carga a nuestras nuevas funciones.
 	mw_load_project_layer.project_selected_for_load.connect(_on_load_project_requested)
 	mw_load_project_layer.project_selected_for_delete.connect(_on_delete_project_requested)
+	
+	mw_connection_layer.back_button.pressed.connect(on_cl_back_button_pressed)
+	mw_connection_layer.button.pressed.connect(apply_pressed)
 
 
-# --- Tus funciones existentes (sin cambios) ---
 func on_lpl_back_button_pressed() -> void:
 	mw_load_project_layer.offset.x = 1080.0
+	main_window_layer.offset.x = 0.0
+
+func on_cl_back_button_pressed() -> void:
+	mw_connection_layer.offset.x = 1080.0
 	main_window_layer.offset.x = 0.0
 
 func on_mwl_create_project_button_pressed() -> void:
@@ -29,9 +37,16 @@ func on_mwl_load_project_button_pressed() -> void:
 	mw_load_project_layer.offset.x = 0.0
 	main_window_layer.offset.x = -1080.0
 
+func on_mwl_help_button_pressed() -> void:
+	mw_connection_layer.offset.x = 0.0
+	main_window_layer.offset.x = -1080.0
+
 func on_mwl_close_button_pressed() -> void:
 	get_tree().quit()
 
+func apply_pressed():
+	AppManager.SERVER_URL = "http://" + mw_connection_layer.text_edit.text + "/"
+	pass
 
 # --- NUEVAS FUNCIONES AÑADIDAS AL FINAL DEL SCRIPT ---
 

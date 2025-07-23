@@ -2,7 +2,7 @@ extends CanvasLayer
 
 signal model_selected(url)
 
-const MODELS_PATH: String = AppManager.PREFIX_DIR + AppManager.MODELS_FOLDER
+var MODELS_PATH: String = AppManager.PREFIX_DIR + AppManager.MODELS_FOLDER
 
 @export_file("*.tscn", "*.scn") var model_button_scene: String = "res://scenes/components/model_button.tscn"
 @onready var buttons_container := %ButtonsContainer
@@ -39,4 +39,3 @@ func _on_model_button_pressed(url_del_modelo: String) -> void:
 	print("Se ha seleccionado un modelo en la capa de UI. URL: ", url_del_modelo)
 	model_selected.emit(url_del_modelo)
 	self.visible = false
-

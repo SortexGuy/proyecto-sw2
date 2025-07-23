@@ -4,7 +4,7 @@ extends CanvasLayer
 signal subcat_button_pressed(cats_desc: Dictionary)
 signal text_sent(texto: String, ID: int)
 
-const CAT_SERVER_URL: String = AppManager.SERVER_URL + "categories"
+var CAT_SERVER_URL: String = AppManager.SERVER_URL + "categories"
 @export_file("*.tscn", "*.scn") var cats_templ: String = "res://scenes/components/cat_template.tscn"
 
 @onready var http :HTTPRequest= $HTTPRequest

@@ -114,7 +114,7 @@ func _add_collision_shape_to_root(root: CollisionObject3D, model_node: Node3D):
 		collision_shape.global_transform = mesh_node.global_transform
 
 func _on_model_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int, clicked_model: CollisionObject3D):
-	print("¡Clic detectado sobre el modelo '", clicked_model.name, "'!")
+	#print("¡Clic detectado sobre el modelo '", clicked_model.name, "'!")
 	if event is InputEventScreenTouch and event.index == 0:
 		if event.is_pressed() and clicked_model is ModelBody3D:
 			is_dragging = true
@@ -149,7 +149,6 @@ func save_project_data() -> Dictionary:
 		"models": models_data
 	}
 	return project_data
-
 
 ## Recibe datos de un proyecto, borra los modelos actuales y carga los nuevos.
 func load_project_data(project_data: Dictionary) -> void:

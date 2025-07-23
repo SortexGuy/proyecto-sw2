@@ -1,9 +1,9 @@
 class_name StoreLayerDownloads
 extends CanvasLayer
 
-const API_MODELOS_URL: String = AppManager.SERVER_URL + "models"
-const API_GLTF_URL: String = AppManager.SERVER_URL + "models/static/"
-const META_LOCAL_PATH := AppManager.PREFIX_DIR + AppManager.META_LOCAL
+var API_MODELOS_URL: String = AppManager.SERVER_URL + "models"
+var API_GLTF_URL: String = AppManager.SERVER_URL + "models/static/"
+var META_LOCAL_PATH := AppManager.PREFIX_DIR + AppManager.META_LOCAL
 
 @export_file("*.tscn", "*.scn")
 var models_button_templ: String = "res://scenes/components/store_model_button_templ.tscn"

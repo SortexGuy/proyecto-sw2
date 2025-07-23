@@ -7,8 +7,8 @@ signal text_sent(texto: String, ID: int)
 const CAT_SERVER_URL: String = AppManager.SERVER_URL + "categories"
 @export_file("*.tscn", "*.scn") var cats_templ: String = "res://scenes/components/cat_template.tscn"
 
-@onready var http := $HTTPRequest
-@onready var http2 := $HTTPRequest2
+@onready var http :HTTPRequest= $HTTPRequest
+@onready var http2 :HTTPRequest= $HTTPRequest2
 @onready var back_button: Button = %BackButton
 @onready var categories_container: VBoxContainer = %CategoriesContainer
 
@@ -61,12 +61,15 @@ func obtener_categorias():
 		print("Error solicitando categorías:", err)
 
 ## respuesta de http(1)
-func _on_http_request_completed(_result, response_code, _headers, body):
-	var parsed := JSON.parse_string(body.get_string_from_utf8()) as Dictionary
+func _on_http_request_completed(_result, response_code, _headers, body: PackedByteArray):
+	var parsed: Dictionary
 	if response_code != 200 or body.size() < 0:
 		print("Error HTTP:", response_code, " Body size:", body.size())
-		print(parsed)
+		if body.size() > 0:
+			parsed = JSON.parse_string(body.get_string_from_utf8())
+			print(parsed)
 		return
+	parsed = JSON.parse_string(body.get_string_from_utf8())
 	if not parsed.has("response"):
 		printerr("Not well contructed response")
 		return
@@ -88,8 +91,9 @@ func revisar_subcategorias(id: int):
 func trigger_subcategory(id: int):
 	processing = true
 	curr_cat_id = id
-	var link_sub = (AppManager.SERVER_URL + "categories/%d/subcategories?page=1&pageSize=20").format(id, "%d")
-	var err = http2.request(link_sub)
+	var link_sub := AppManager.SERVER_URL + ("categories/%d/subcategories?page=1&pageSize=20" % id)
+	print(link_sub)
+	var err := http2.request(link_sub)
 	if err != OK:
 		print("Error solicitando subcategorías:", err)
 
@@ -108,6 +112,7 @@ func _on_http_request_2_completed(_result, response_code, _headers, body):
 				subcats[s.id] = s
 			categories[curr_cat_id].subcategories = subcats
 	else:
+		print("Subcategories")
 		print("Error HTTP:", response_code, " Body size:", body.size())
 		print(parsed)
 
@@ -118,32 +123,5 @@ func _on_http_request_2_completed(_result, response_code, _headers, body):
 		populate()
 		print("Subcategorías cargadas")
 
-# func connect_buttons(string: String):
-# 	_on_item_pressed(string)
-
-# func _on_item_pressed(string):
-# 	match string:
-# 		"Mesas1": text = "Mesas pequeñas"
-# 		"Mesas2": text = "Mesas medianas"
-# 		"Mesas3": text = "Mesas grandes"
-# 		"Sillas": text = "Sillas"
-# 		"Muebles": text = "Muebles"
-# 		"Sofas": text = "Sofás"
-# 		"Pisos": text = "Pack de Pisos"
-# 		"Paredes": text = "Pack de Paredes"
-# 		"Cuadros": text = "Cuadros"
-# 		"Ventanas": text = "Ventanas"
-# 		"Adornos": text = "Adornos"
-# 		_: print("Item desconocido:", string)
-#
-# 	for i in subcategories:
-# 		if subcategories[i].name == text:
-# 			ID = subcategories[i].id
-#
-# 	print("Emitiendo señal:", text, "ID:", ID)
-# 	emit_signal("text_sent", text, ID)
-# 	if store:
-# 		store.visible = true
-
-# func _on_back_button_pressed():
-# 	self.visible = false
+func _on_back_button_pressed():
+	self.visible = false

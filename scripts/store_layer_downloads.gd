@@ -61,7 +61,9 @@ func receive_text(text: String, ID: int):
 func obtener_modelos():
 	print("Solicitando modelos desde:", API_MODELOS_URL)
 	http.timeout = 5
-	var err = http.request(API_MODELOS_URL + "/?subcategories=" + subcat_desc.id)
+	print("\n\n\n")
+	print(subcat_desc)
+	var err = http.request(API_MODELOS_URL + "?subcategories=" + str(subcat_desc.id))
 	if err != OK:
 		print("Error al solicitar modelos:", err)
 
@@ -70,6 +72,8 @@ func _on_http_request_completed(_result, response_code, _headers, body):
 
 	if response_code != 200 or body.size() <= 0:
 		print("Fallo HTTP:", response_code, " Body:", body.size())
+		var parsed = JSON.parse_string(body.get_string_from_utf8())
+		print(parsed)
 		if modelo_en_descarga_id != null:
 			modelo_en_descarga_id = null
 		note.text = "Modelo inválido o no disponible" if body.size() == 33 else "No se pudo conectar con el servidor"
@@ -81,16 +85,23 @@ func _on_http_request_completed(_result, response_code, _headers, body):
 		var parsed = JSON.parse_string(body.get_string_from_utf8())
 		if typeof(parsed) == TYPE_DICTIONARY and parsed.has("data"):
 			parsed = parsed as Dictionary
+			print(parsed)
 			var lista := parsed["data"] as Array
+			print("\n")
+			print(lista)
 			for modelo in lista:
+				print("\n")
 				modelo = modelo as Dictionary
+				print(modelo)
 				modelo.id = int(modelo.id)
-				print("Modelo:", modelo.name, "ID:", modelo.id, "Categorías:", modelo.categories)
+				print("Modelo:", modelo.name, ", ID:", modelo.id, ", Categorías:", modelo.categories)
 				note.text = "En este momento no hay archivos\ndisponibles"
 
-				# Se recomienda usar `if iD in modelo.subcategories` para mayor flexibilidad
-				if typeof(modelo.subcategories) == TYPE_ARRAY and iD in modelo.subcategories:
-					modelos[modelo.id] = modelo
+				## Se recomienda usar `if iD in modelo.subcategories` para mayor flexibilidad
+				#if typeof(modelo.subcategories) == TYPE_ARRAY and iD in modelo.subcategories:
+				modelos[modelo.id] = modelo
+			print("\n")
+			print(modelos)
 			generar_botones(modelos)
 	else:
 		print("Descarga completada, guardando modelo ID:", modelo_en_descarga_id)
@@ -106,7 +117,7 @@ func generar_botones(modelos_dict):
 		btn.text = modelo.name
 		btn.model_id = modelo.id
 		btn.visible = true
-		btn.pressed.connect(_on_button_model_pressed.bind(btn.id))
+		btn.pressed.connect(_on_button_model_pressed.bind(btn.model_id))
 		container.add_child(btn)
 
 func _on_button_model_pressed(modelo_id):
@@ -129,7 +140,7 @@ func _on_button_model_pressed(modelo_id):
 		print("Error solicitando GLB:", modelo_en_descarga_id)
 
 func guardar_archivo_glb(bytes):
-	var ruta := "%s/modelo_%d.glb" % [AppManager.MODELS_FOLDER, modelo_en_descarga_id]
+	var ruta := "%smodelo_%d.glb" % [AppManager.MODELS_FOLDER, modelo_en_descarga_id]
 
 	var dir := DirAccess.open(AppManager.PREFIX_DIR)
 	if not dir.dir_exists(AppManager.MODELS_FOLDER):
@@ -139,7 +150,7 @@ func guardar_archivo_glb(bytes):
 			return
 
 	print("Guardando archivo en:", ruta)
-	var file := FileAccess.open(ruta, FileAccess.WRITE)
+	var file := FileAccess.open(AppManager.PREFIX_DIR + ruta, FileAccess.WRITE)
 	if file:
 		file.store_buffer(bytes)
 		file.close()

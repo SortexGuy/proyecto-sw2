@@ -22,12 +22,13 @@ func setup(category: Dictionary):
 	for subcat in cat.subcategories.values():
 		var item: SubCatItem = subcat_item_scene.instantiate()
 		subcat_container.add_child(item)
-		item.subcategory_label.text = (subcat as String).capitalize()
-		item.subcat = subcat
+		item.subcategory_label.text = (subcat.name as String).capitalize()
+		item.setup(subcat)
 		item.subcat_button_pressed.connect(_on_subcat_button_item_pressed)
 		pass
 	pass
 
 func _on_subcat_button_item_pressed(subcat: Dictionary) -> void:
-	subcat["cat_id"] = cat.id
+	print(subcat)
+	subcat.cat_id = cat.id
 	subcat_button_pressed.emit(subcat)

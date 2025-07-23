@@ -5,10 +5,15 @@ extends SubViewportContainer
 @onready var camera_3d: Camera3D = %Camera3D
 @onready var sub_viewport: SubViewport = $SubViewport
 @onready var models_container: Node3D = %Models
+@onready var room: CSGBox3D = %Room
 
 var selected_model: CollisionObject3D = null
 var is_dragging: bool = false
 var drag_offset: Vector3 = Vector3.ZERO
+
+func resize_room(width, depth) -> void:
+	room.size = Vector3(width, room.size.y,depth)
+	pass
 
 func _ready() -> void:
 	var project_data := ProjectLoader.get_and_clear_data()

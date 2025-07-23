@@ -174,3 +174,4 @@ icon = ExtResource("2_7mn1q")
 expand_icon = true
 
 [connection signal="pressed" from="PanelPrincipal2/Margen/VBoxContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="PanelPrincipal2/Margen/VBoxContainer/HBoxContainer/Button2" to="." method="_on_button_2_pressed"]

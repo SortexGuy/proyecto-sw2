@@ -27,6 +27,7 @@ func _ready():
 			push_error("Error en Interfaces: No se encontró el nodo wo_models_layer.")
 		if not world_layer:
 			push_error("Error en Interfaces: No se encontró el nodo world_layer. La ruta '../World/WorldLayer' es incorrecta o el nodo no se llama así.")
+	side_dimensions_layer.cambio_dim.connect(world_layer.resize_room)
 
 func _on_exit_button_pressed() -> void:
 	get_tree().change_scene_to_file(main_menu_scene)

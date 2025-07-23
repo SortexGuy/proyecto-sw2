@@ -1,6 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://1o34vldnsbvu"]
+[gd_scene load_steps=7 format=3 uid="uid://1o34vldnsbvu"]
 
 [ext_resource type="Script" uid="uid://cnqrljx82lve2" path="res://scripts/world_layer.gd" id="1_7ft7k"]
+[ext_resource type="Texture2D" uid="uid://byllw0jxivlqn" path="res://addons/kenney_prototype_textures/light/texture_12.png" id="2_s5lql"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3h7tx"]
+albedo_texture = ExtResource("2_s5lql")
+uv1_triplanar = true
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_v3vba"]
 ground_bottom_color = Color(0.0797146, 0.0333714, 0.075063, 1)
@@ -12,8 +17,14 @@ sky_material = SubResource("ProceduralSkyMaterial_v3vba")
 
 [sub_resource type="Environment" id="Environment_s5lql"]
 background_mode = 2
+background_energy_multiplier = 1.2
 sky = SubResource("Sky_7ft7k")
-tonemap_mode = 2
+ambient_light_sky_contribution = 0.4
+ambient_light_energy = 0.8
+tonemap_mode = 3
+adjustment_enabled = true
+adjustment_contrast = 1.2
+adjustment_saturation = 0.9
 
 [node name="WorldSubviewportContainer" type="SubViewportContainer"]
 anchors_preset = 15
@@ -42,11 +53,12 @@ unique_name_in_owner = true
 
 [node name="Room" type="CSGBox3D" parent="SubViewport/World"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 use_collision = true
 collision_layer = 2
 flip_faces = true
-size = Vector3(6, 4, 6)
+size = Vector3(6, 3, 6)
+material = SubResource("StandardMaterial3D_3h7tx")
 
 [node name="CamPivot" type="Marker3D" parent="SubViewport/World"]
 unique_name_in_owner = true
@@ -65,4 +77,9 @@ environment = SubResource("Environment_s5lql")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport/World"]
 transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+light_color = Color(0.1944, 0.23924, 0.24, 1)
+light_energy = 0.8
+light_indirect_energy = 0.8
+light_specular = 0.8
 shadow_enabled = true
+shadow_opacity = 0.8

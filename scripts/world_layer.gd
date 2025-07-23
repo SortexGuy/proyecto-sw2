@@ -65,13 +65,9 @@ func add_model(model_url: String) -> CollisionObject3D:
 	new_model_root.input_event.connect(_on_model_input_event.bind(new_model_root))
 
 	var path := AppManager.PREFIX_DIR + model_url
-	print("\n", path)
-	#var data = FileAccess.get_file_as_bytes(path)
 	var glb_state := GLTFState.new()
 	var pack := GLTFDocument.new()
-	#var err := pack.append_from_buffer(data, "", glb_state)
 	var err := pack.append_from_file(path, glb_state)
-	#if err != OK:
 	print("\n", pack.resource_name)
 	var glb_data: Node3D = pack.generate_scene(glb_state)
 	var model_instance: Node3D = glb_data
@@ -80,13 +76,8 @@ func add_model(model_url: String) -> CollisionObject3D:
 	models_container.add_child(new_model_root)
 
 	new_model_root.global_position = Vector3.ZERO
-	new_model_root.global_position.y += 0.2
+	new_model_root.global_position.y += 0.001
 	print("Modelo '"+ new_model_root.name + "' añadido a la escena.")
-	#else:
-		#push_error(error_string(err))
-		#push_error("Error: No se pudo cargar el modelo " + model_url)
-		#return null
-
 	return new_model_root
 
 func _add_collision_shape_to_area(area: Area3D, model_node: Node3D):

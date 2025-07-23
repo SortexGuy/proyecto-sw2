@@ -30,7 +30,7 @@ func _input(event: InputEvent) -> void:
 		var ray_dir := camera_3d.project_ray_normal(event.position)
 		# Proyectamos sobre un plano horizontal a la altura del modelo.
 		var plane := Plane(Vector3.UP, selected_model.global_position.y)
-		var intersection := plane.intersects_ray(ray_origin, ray_dir) as Vector3
+		var intersection = plane.intersects_ray(ray_origin, ray_dir)
 		if intersection:
 			selected_model.move_to(intersection + drag_offset)
 			# selected_model.global_position = intersection + drag_offset
@@ -56,6 +56,7 @@ func _unhandled_input(event: InputEvent):
 			print("Modelo deseleccionado.")
 
 func add_model(model_url: String) -> CollisionObject3D:
+	print("\n\nAdding Model: " + model_url)
 	var new_model_root := ModelBody3D.new()
 	new_model_root.name = model_url.get_file().get_basename()
 	new_model_root.set_meta("model_url", model_url) # Guardamos la URL original en los metadatos
@@ -63,19 +64,28 @@ func add_model(model_url: String) -> CollisionObject3D:
 	new_model_root.input_ray_pickable = true
 	new_model_root.input_event.connect(_on_model_input_event.bind(new_model_root))
 
-	var glb_data := load(model_url)
-	if glb_data:
-		var model_instance: Node3D = glb_data.instantiate()
-		new_model_root.add_child(model_instance)
-		_add_collision_shape_to_root(new_model_root, model_instance)
-		models_container.add_child(new_model_root)
+	var path := AppManager.PREFIX_DIR + model_url
+	print("\n", path)
+	#var data = FileAccess.get_file_as_bytes(path)
+	var glb_state := GLTFState.new()
+	var pack := GLTFDocument.new()
+	#var err := pack.append_from_buffer(data, "", glb_state)
+	var err := pack.append_from_file(path, glb_state)
+	#if err != OK:
+	print("\n", pack.resource_name)
+	var glb_data: Node3D = pack.generate_scene(glb_state)
+	var model_instance: Node3D = glb_data
+	new_model_root.add_child(model_instance)
+	_add_collision_shape_to_root(new_model_root, model_instance)
+	models_container.add_child(new_model_root)
 
-		new_model_root.global_position = Vector3.ZERO
-		new_model_root.global_position.y += 0.2
-		print("Modelo '"+ new_model_root.name + "' añadido a la escena.")
-	else:
-		push_error("Error: No se pudo cargar el modelo " + model_url)
-		return null
+	new_model_root.global_position = Vector3.ZERO
+	new_model_root.global_position.y += 0.2
+	print("Modelo '"+ new_model_root.name + "' añadido a la escena.")
+	#else:
+		#push_error(error_string(err))
+		#push_error("Error: No se pudo cargar el modelo " + model_url)
+		#return null
 
 	return new_model_root
 

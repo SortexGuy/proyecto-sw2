@@ -6,3 +6,4 @@ const PREFIX_DIR: String = "user://"
 const SAVE_FOLDER: String = "saved_projects/"
 const MODELS_FOLDER: String = "downloads/"
 const SAVED_PROJECTS_PATH: String = PREFIX_DIR + SAVE_FOLDER
+const META_LOCAL := "modelos_locales.json"

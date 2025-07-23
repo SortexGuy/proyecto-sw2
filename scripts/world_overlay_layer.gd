@@ -11,4 +11,4 @@ func _on_button_pressed():
 
 #Hace aparecer la ventana de modelos
 func _on_button_2_pressed():
-	modelos.visible = true
+	modelos.visible = !modelos.visible

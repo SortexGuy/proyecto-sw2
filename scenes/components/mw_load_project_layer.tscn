@@ -89,4 +89,6 @@ size_flags_vertical = 3
 theme_override_constants/separation = 20
 
 [node name="SampleProjectItem" parent="SubContainer/PanelContainer/MarginContainer/ScrollContainer/ProjectsContainer" instance=ExtResource("4_xdo37")]
+custom_minimum_size = Vector2(0, 0)
 layout_mode = 2
+alignment = 0

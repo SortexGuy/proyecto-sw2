@@ -44,6 +44,7 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 use_collision = true
+collision_layer = 2
 flip_faces = true
 size = Vector3(6, 4, 6)
 

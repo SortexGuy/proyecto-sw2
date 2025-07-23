@@ -8,7 +8,7 @@ signal delete_pressed(project_path)
 # Variables que el script padre (LoadProjectLayer) configurará.
 @onready var project_label: Label = %ProjectLabel
 # Cambiamos la referencia al nuevo botón de carga.
-@onready var load_button: Button = %LoadButton 
+@onready var load_button: Button = %LoadButton
 @onready var delete_button: Button = %DeleteButton
 
 # Ruta completa al archivo .prj que este item representa.
@@ -26,7 +26,9 @@ func set_project_path(path: String):
 # Renombramos la función para que coincida con el nuevo botón.
 func _on_load_button_pressed():
 	# La lógica aquí es idéntica a la anterior.
-	if project_path.is_empty(): return
+	if project_path.is_empty():
+		printerr("Project Path Empty")
+		return
 	preview_pressed.emit(project_path)
 
 func _on_delete_button_pressed():

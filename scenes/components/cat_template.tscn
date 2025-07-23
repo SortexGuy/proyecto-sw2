@@ -1,0 +1,117 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5oj0vh1dtnox"]
+
+[ext_resource type="Script" uid="uid://c5j2r4x4k3g63" path="res://scripts/components/cat_template.gd" id="1_ctmu5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gubc5"]
+bg_color = Color(1, 1, 1, 1)
+border_width_top = 5
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rt2n2"]
+bg_color = Color(0.117647, 0.0705882, 0.0666667, 1)
+border_width_bottom = 10
+border_color = Color(0.0901961, 0.0392157, 0.0470588, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[node name="CatTemplate" type="VBoxContainer"]
+theme_override_constants/separation = 32
+script = ExtResource("1_ctmu5")
+
+[node name="CategoryLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 40
+text = "Mesas"
+
+[node name="HSeparator" type="HSeparator" parent="."]
+layout_mode = 2
+theme_override_constants/separation = -5
+theme_override_styles/separator = SubResource("StyleBoxFlat_gubc5")
+
+[node name="SubCategories" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="Mesas1" type="Label" parent="SubCategories"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "     Mesas pequeñas (10)"
+
+[node name="Button" type="Button" parent="SubCategories/Mesas1"]
+clip_contents = true
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -39.5
+offset_bottom = 39.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_rt2n2")
+text = "+"
+icon_alignment = 1
+expand_icon = true
+
+[node name="Mesas2" type="Label" parent="SubCategories"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "     Mesas medianas (12)"
+
+[node name="Button" type="Button" parent="SubCategories/Mesas2"]
+clip_contents = true
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -25.0
+offset_bottom = 25.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_rt2n2")
+text = "+"
+
+[node name="Mesas3" type="Label" parent="SubCategories"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "     Mesas grandes (6)"
+
+[node name="Button" type="Button" parent="SubCategories/Mesas3"]
+clip_contents = true
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -25.0
+offset_bottom = 25.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_rt2n2")
+text = "+"
+icon_alignment = 1
+expand_icon = true
+
+[node name="HSeparator2" type="HSeparator" parent="."]
+layout_mode = 2
+theme_override_constants/separation = -5
+theme_override_styles/separator = SubResource("StyleBoxFlat_gubc5")

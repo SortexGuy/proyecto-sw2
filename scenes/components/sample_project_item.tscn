@@ -43,6 +43,7 @@ corner_radius_bottom_left = 8
 
 [node name="SampleProjectItem" type="HBoxContainer"]
 custom_minimum_size = Vector2(0, 120)
+size_flags_horizontal = 3
 theme_override_constants/separation = 16
 alignment = 1
 script = ExtResource("1_q7whk")
@@ -55,6 +56,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_vj2ts")
 theme_override_styles/hover = SubResource("StyleBoxFlat_biln3")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_qldkp")
 theme_override_styles/normal = SubResource("StyleBoxFlat_lhtrn")
+flat = true
 
 [node name="ProjectLabel" type="Label" parent="LoadButton"]
 unique_name_in_owner = true
@@ -74,7 +76,7 @@ vertical_alignment = 1
 [node name="DeleteButton" type="Button" parent="."]
 unique_name_in_owner = true
 clip_contents = true
-custom_minimum_size = Vector2(64, 64)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 8
 theme_override_styles/focus = SubResource("StyleBoxFlat_l3fnk")

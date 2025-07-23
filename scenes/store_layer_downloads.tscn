@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bd85ig5irvsup" path="res://scripts/store_layer_downloads.gd" id="1_2ym8l"]
 [ext_resource type="Texture2D" uid="uid://c6cgry7lwapkj" path="res://assets/images/volver.png" id="2_1ffot"]
-[ext_resource type="Texture2D" uid="uid://c4xtqaw3xd2na" path="res://assets/images/silla.png" id="2_2ym8l"]
+[ext_resource type="PackedScene" uid="uid://c6l0suefj1tur" path="res://scenes/components/store_model_button_templ.tscn" id="3_1ffot"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qmmev"]
 bg_color = Color(0.172549, 0.0941176, 0.164706, 0.956863)
@@ -41,7 +41,8 @@ theme_override_constants/margin_bottom = 70
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelPrincipal3/SideVista2MODELOS"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelPrincipal3/SideVista2MODELOS/VBoxContainer"]
+[node name="CategoryLabel" type="Label" parent="PanelPrincipal3/SideVista2MODELOS/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.960784, 0.878431, 0.788235, 1)
@@ -66,10 +67,12 @@ theme_override_constants/margin_bottom = 230
 clip_contents = false
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelPrincipal3/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer"]
+[node name="ModelsContainer" type="VBoxContainer" parent="PanelPrincipal3/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Note" type="Label" parent="PanelPrincipal3/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+[node name="Note" type="Label" parent="PanelPrincipal3/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/ModelsContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(800, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
@@ -96,21 +99,9 @@ icon = ExtResource("2_1ffot")
 alignment = 2
 expand_icon = true
 
-[node name="Button" type="Button" parent="."]
+[node name="StoreModelButtonTempl" parent="." instance=ExtResource("3_1ffot")]
 unique_name_in_owner = true
-clip_contents = true
-custom_minimum_size = Vector2(800, 250)
-offset_left = 140.0
-offset_top = 278.0
-offset_right = 940.0
-offset_bottom = 528.0
-theme_override_font_sizes/font_size = 60
-theme_override_icons/icon = ExtResource("2_2ym8l")
-text = "Mesa"
-alignment = 0
-expand_icon = true
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 
 [connection signal="pressed" from="PanelPrincipal3/SideVista2MODELOS/VBoxContainer/BackButton2" to="." method="_on_back_button_pressed"]
-[connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]

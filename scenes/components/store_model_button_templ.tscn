@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6l0suefj1tur"]
+
+[ext_resource type="Texture2D" uid="uid://c4xtqaw3xd2na" path="res://assets/images/silla.png" id="1_3w5tl"]
+[ext_resource type="Script" uid="uid://bb8dwdcgc6qq3" path="res://scripts/components/store_model_button_templ.gd" id="2_fvv2e"]
+
+[node name="StoreModelButtonTempl" type="Button"]
+clip_contents = true
+custom_minimum_size = Vector2(800, 250)
+offset_right = 800.0
+offset_bottom = 250.0
+theme_override_font_sizes/font_size = 60
+theme_override_icons/icon = ExtResource("1_3w5tl")
+text = "Mesa"
+alignment = 0
+expand_icon = true
+script = ExtResource("2_fvv2e")

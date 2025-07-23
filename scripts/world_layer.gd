@@ -7,7 +7,7 @@ extends SubViewportContainer
 @onready var models_container: Node3D = %Models
 @onready var room: CSGBox3D = %Room
 
-var selected_model: CollisionObject3D = null
+var selected_model: ModelBody3D = null
 var is_dragging: bool = false
 var drag_offset: Vector3 = Vector3.ZERO
 
@@ -30,9 +30,10 @@ func _input(event: InputEvent) -> void:
 		var ray_dir := camera_3d.project_ray_normal(event.position)
 		# Proyectamos sobre un plano horizontal a la altura del modelo.
 		var plane := Plane(Vector3.UP, selected_model.global_position.y)
-		var intersection = plane.intersects_ray(ray_origin, ray_dir)
+		var intersection := plane.intersects_ray(ray_origin, ray_dir) as Vector3
 		if intersection:
-			selected_model.global_position = intersection + drag_offset
+			selected_model.move_to(intersection + drag_offset)
+			# selected_model.global_position = intersection + drag_offset
 		return # Importante: Si estamos arrastrando, no movemos la cámara.
 
 	if event is InputEventGesture:
@@ -55,7 +56,7 @@ func _unhandled_input(event: InputEvent):
 			print("Modelo deseleccionado.")
 
 func add_model(model_url: String) -> CollisionObject3D:
-	var new_model_root := CharacterBody3D.new()
+	var new_model_root := ModelBody3D.new()
 	new_model_root.name = model_url.get_file().get_basename()
 	new_model_root.set_meta("model_url", model_url) # Guardamos la URL original en los metadatos
 
@@ -70,6 +71,7 @@ func add_model(model_url: String) -> CollisionObject3D:
 		models_container.add_child(new_model_root)
 
 		new_model_root.global_position = Vector3.ZERO
+		new_model_root.global_position.y += 0.2
 		print("Modelo '"+ new_model_root.name + "' añadido a la escena.")
 	else:
 		push_error("Error: No se pudo cargar el modelo " + model_url)
@@ -113,7 +115,7 @@ func _add_collision_shape_to_root(root: CollisionObject3D, model_node: Node3D):
 func _on_model_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int, clicked_model: CollisionObject3D):
 	print("¡Clic detectado sobre el modelo '", clicked_model.name, "'!")
 	if event is InputEventScreenTouch and event.index == 0:
-		if event.is_pressed():
+		if event.is_pressed() and clicked_model is ModelBody3D:
 			is_dragging = true
 			selected_model = clicked_model
 
